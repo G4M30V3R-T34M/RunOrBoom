@@ -1,18 +1,13 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class RotateToCursor : MonoBehaviour
 {
-    Camera mainCamera;
+    private Camera mainCamera;
 
-    private void Start()
-    {
-        mainCamera = Camera.main;
-    }
+    private void Start() => mainCamera = Camera.main;
 
-    private void Update()
-    {
-        Rotate();
-    }
+    private void FixedUpdate() => Rotate();
 
     private void Rotate()
     {
@@ -22,11 +17,10 @@ public class RotateToCursor : MonoBehaviour
 
     private Vector3 GetMousePosition()
     {
-        return new Vector3(Input.mousePosition.x, Input.mousePosition.y, Input.mousePosition.z - mainCamera.transform.position.z);
+        Vector2 mousePosition = Mouse.current.position.ReadValue();
+        return new Vector3(mousePosition.x, mousePosition.y, mainCamera.transform.position.z);
     }
 
-    private float TanAngleDeg(Vector3 position)
-    {
-        return Mathf.Atan2((position.y - transform.position.y), (position.x - transform.position.x)) * Mathf.Rad2Deg;
-    }
+    private float TanAngleDeg(Vector3 position) => Mathf.Atan2(position.y - transform.position.y, (position.x - transform.position.x)) * Mathf.Rad2Deg;
+
 }
