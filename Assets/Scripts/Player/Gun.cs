@@ -14,9 +14,9 @@ public class Gun : MonoBehaviour
     float currentAimTime = 0;
     LineRenderer lineRenderer;
 
-    void Awake() => lineRenderer = rayOrigin.GetComponent<LineRenderer>();
+    private void Awake() => lineRenderer = rayOrigin.GetComponent<LineRenderer>();
 
-    void Update()
+    private void Update()
     {
         RaycastHit2D aim = GetGunAim();
 
@@ -30,7 +30,7 @@ public class Gun : MonoBehaviour
         }
     }
 
-    RaycastHit2D GetGunAim()
+    private RaycastHit2D GetGunAim()
     {
         // Get mouse position
         Vector3 mouseWorldPosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
@@ -43,9 +43,9 @@ public class Gun : MonoBehaviour
         return Physics2D.Raycast(rayOrigin.transform.position, direction);
     }
 
-    bool AimingToEnemy(RaycastHit2D hit) => hit.collider != null && hit.collider.gameObject.layer == (int)Layer.Enemy;
+    private bool AimingToEnemy(RaycastHit2D hit) => hit.collider != null && hit.collider.gameObject.layer == (int)Layer.Enemy;
 
-    void TryToShot(RaycastHit2D hit)
+    private void TryToShot(RaycastHit2D hit)
     {
         currentAimTime += Time.deltaTime;
         if (currentAimTime >= aimTime)
@@ -55,14 +55,14 @@ public class Gun : MonoBehaviour
         }
     }
 
-    void VisualShot(RaycastHit2D hit)
+    private void VisualShot(RaycastHit2D hit)
     {
         lineRenderer.SetPosition(0, rayOrigin.transform.position);
         lineRenderer.SetPosition(1, hit.point);
         StartCoroutine(RenderLine());
     }
 
-    IEnumerator RenderLine()
+    private IEnumerator RenderLine()
     {
         lineRenderer.enabled = true;
         yield return new WaitForSeconds(trailDuration);
