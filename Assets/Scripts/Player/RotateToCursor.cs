@@ -7,7 +7,7 @@ public class RotateToCursor : MonoBehaviour
 
     private void Start() => mainCamera = Camera.main;
 
-    private void FixedUpdate() => Rotate();
+    private void Update() => Rotate();
 
     private void Rotate()
     {
