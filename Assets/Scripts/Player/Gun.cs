@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -7,19 +8,29 @@ public class Gun : MonoBehaviour
     GameObject rayOrigin;
     [SerializeField]
     float aimTime;
+    [SerializeField]
+    float trailDuration;
 
     float currentAimTime = 0;
+    LineRenderer lineRenderer;
 
-    void Start()
-    {
-    }
+    void Awake() => lineRenderer = rayOrigin.GetComponent<LineRenderer>();
 
     void Update()
     {
-        CheckRaycast();
+        RaycastHit2D aim = GetGunAim();
+
+        if (AimingToEnemy(aim))
+        {
+            TryToShot(aim);
+        }
+        else
+        {
+            currentAimTime = 0;
+        }
     }
 
-    void CheckRaycast()
+    RaycastHit2D GetGunAim()
     {
         // Get mouse position
         Vector3 mouseWorldPosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
@@ -28,26 +39,33 @@ public class Gun : MonoBehaviour
         // Compute direction
         Vector2 direction = (mouseWorldPosition - rayOrigin.transform.position).normalized;
 
-        // create the Raycast to infinity that only colides with enemy layer
-        RaycastHit2D hit = Physics2D.Raycast(
-            rayOrigin.transform.position,
-            direction,
-            Mathf.Infinity,
-            (int)Layer.Enemy
-        );
+        // Perform raycast from virtual bullet origin
+        return Physics2D.Raycast(rayOrigin.transform.position, direction);
+    }
 
-        if (hit.collider != null) {
-            currentAimTime += Time.deltaTime;
-            if (currentAimTime >= aimTime) {
-                // Shot
-                currentAimTime = 0;
-            }
-        }
-        else {
+    bool AimingToEnemy(RaycastHit2D hit) => hit.collider != null && hit.collider.gameObject.layer == (int)Layer.Enemy;
+
+    void TryToShot(RaycastHit2D hit)
+    {
+        currentAimTime += Time.deltaTime;
+        if (currentAimTime >= aimTime)
+        {
+            VisualShot(hit);
             currentAimTime = 0;
         }
+    }
 
-        // Draw the ray for debugging
-        Debug.DrawLine(rayOrigin.transform.position, mouseWorldPosition, Color.red);
+    void VisualShot(RaycastHit2D hit)
+    {
+        lineRenderer.SetPosition(0, rayOrigin.transform.position);
+        lineRenderer.SetPosition(1, hit.point);
+        StartCoroutine(RenderLine());
+    }
+
+    IEnumerator RenderLine()
+    {
+        lineRenderer.enabled = true;
+        yield return new WaitForSeconds(trailDuration);
+        lineRenderer.enabled = false;
     }
 }
