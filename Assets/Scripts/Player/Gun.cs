@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class Gun : MonoBehaviour
 {
@@ -33,8 +32,7 @@ public class Gun : MonoBehaviour
     private RaycastHit2D GetGunAim()
     {
         // Get mouse position
-        Vector3 mouseWorldPosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-        mouseWorldPosition.z = 0;
+        Vector3 mouseWorldPosition = MouseHelper.GetPosition();
 
         // Compute direction
         Vector2 direction = (mouseWorldPosition - rayOrigin.transform.position).normalized;
