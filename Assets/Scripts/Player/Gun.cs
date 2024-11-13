@@ -3,17 +3,24 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
+    [Header("Ray origins")]
     [SerializeField]
-    GameObject rayOrigin;
+    GameObject trailOrigin;
     [SerializeField]
-    float aimTime;
+    GameObject aimOrigin;
+
+    [Header("Visual trail configuration")]
     [SerializeField]
     float trailDuration;
+
+    [Header("Current weapon settings")]
+    [SerializeField]
+    GunSO gunSettings;
 
     float currentAimTime = 0;
     LineRenderer lineRenderer;
 
-    private void Awake() => lineRenderer = rayOrigin.GetComponent<LineRenderer>();
+    private void Awake() => lineRenderer = trailOrigin.GetComponent<LineRenderer>();
 
     private void Update()
     {
@@ -35,10 +42,10 @@ public class Gun : MonoBehaviour
         Vector3 mouseWorldPosition = MouseHelper.GetPosition();
 
         // Compute direction
-        Vector2 direction = (mouseWorldPosition - rayOrigin.transform.position).normalized;
+        Vector2 direction = (mouseWorldPosition - aimOrigin.transform.position).normalized;
 
         // Perform raycast from virtual bullet origin
-        return Physics2D.Raycast(rayOrigin.transform.position, direction);
+        return Physics2D.Raycast(aimOrigin.transform.position, direction);
     }
 
     private bool AimingToEnemy(RaycastHit2D hit) => hit.collider != null && hit.collider.gameObject.layer == (int)Layer.Enemy;
@@ -46,7 +53,7 @@ public class Gun : MonoBehaviour
     private void TryToShot(RaycastHit2D hit)
     {
         currentAimTime += Time.deltaTime;
-        if (currentAimTime >= aimTime)
+        if (currentAimTime >= gunSettings.aimTime)
         {
             VisualShot(hit);
             currentAimTime = 0;
@@ -55,7 +62,7 @@ public class Gun : MonoBehaviour
 
     private void VisualShot(RaycastHit2D hit)
     {
-        lineRenderer.SetPosition(0, rayOrigin.transform.position);
+        lineRenderer.SetPosition(0, trailOrigin.transform.position);
         lineRenderer.SetPosition(1, hit.point);
         StartCoroutine(RenderLine());
     }
