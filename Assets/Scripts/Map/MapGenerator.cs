@@ -9,14 +9,10 @@ public class MapGenerator
         _rooms = rooms;
     }
 
-    public bool[][] Generate()
+    public bool[,] Generate()
     {
         int gridSize = (int)Mathf.Ceil(_rooms + 1 / 2);
-        bool[][] roomGrid = new bool[gridSize][];
-        for (int i = 0; i < gridSize; i++)
-        {
-            roomGrid[i] = new bool[gridSize];
-        }
+        bool[,] roomGrid = new bool[gridSize, gridSize];
 
         PlaceFirstRoom(gridSize, ref roomGrid);
 
@@ -32,27 +28,28 @@ public class MapGenerator
         return roomGrid;
     }
 
-    private static void PlaceFirstRoom(int gridSize, ref bool[][] roomGrid)
+    private static void PlaceFirstRoom(int gridSize, ref bool[,] roomGrid)
     {
         int xValue = Random.Range(0, gridSize);
         int yValue = Random.Range(0, gridSize);
-        roomGrid[xValue][yValue] = true;
+        roomGrid[xValue, yValue] = true;
     }
 
-    private bool TryPlaceRoom(int placedRooms, ref bool[][] roomGrid)
+    private bool TryPlaceRoom(int placedRooms, ref bool[,] roomGrid)
     {
         Vector2 existingRoom = GetRandomRoom(placedRooms, ref roomGrid);
         return TryAddAjdacentRoom(existingRoom, ref roomGrid);
     }
-    private Vector2 GetRandomRoom(int placedRooms, ref bool[][] roomGrid)
+
+    private Vector2 GetRandomRoom(int placedRooms, ref bool[,] roomGrid)
     {
         int selectedRoom = Random.Range(0, placedRooms);
 
-        for (int i = 0; i < roomGrid.Length; i++)
+        for (int i = 0; i < roomGrid.GetLength(0); i++)
         {
-            for (int j = 0; j < roomGrid[i].Length; j++)
+            for (int j = 0; j < roomGrid.GetLength(1); j++)
             {
-                if (roomGrid[i][j] && selectedRoom == 0)
+                if (roomGrid[i, j] && selectedRoom == 0)
                 {
                     return new Vector2(i, j);
                 }
@@ -65,7 +62,7 @@ public class MapGenerator
         throw new RoomNotFoundException();
     }
 
-    private bool TryAddAjdacentRoom(Vector2 existingRoom, ref bool[][] roomGrid)
+    private bool TryAddAjdacentRoom(Vector2 existingRoom, ref bool[,] roomGrid)
     {
         int startingDirection = Random.Range(0, 4);
         int nextDirection = startingDirection;
@@ -94,7 +91,7 @@ public class MapGenerator
         _ => Vector2.zero, // should never happen
     };
 
-    private bool IsValidDirection(Vector2 direction, Vector2 room, bool[][] roomGrid)
+    private bool IsValidDirection(Vector2 direction, Vector2 room, bool[,] roomGrid)
     {
         // out of bounds
         if (room.x == 0 && direction.x == -1 ||
@@ -108,13 +105,13 @@ public class MapGenerator
         // room already placed there
         int newRoomX = (int)(room.x + direction.x);
         int newRoomY = (int)(room.y + direction.y);
-        return !(roomGrid[newRoomX][newRoomY]);
+        return !(roomGrid[newRoomX, newRoomY]);
     }
 
-    private void PlaceAdjacentRoom(Vector2 direction, Vector2 room, ref bool[][] roomGrid)
+    private void PlaceAdjacentRoom(Vector2 direction, Vector2 room, ref bool[,] roomGrid)
     {
         int newRoomX = (int)(room.x + direction.x);
         int newRoomY = (int)(room.y + direction.y);
-        roomGrid[newRoomX][newRoomY] = true;
+        roomGrid[newRoomX, newRoomY] = true;
     }
 }
