@@ -35,16 +35,11 @@ public class Gun : MonoBehaviour
         currentTimeToAim = AimingToEnemy(aim) ? currentTimeToAim + Time.deltaTime : 0;
         currentShotCooldown = AimingToEnemy(aim) ? currentShotCooldown : 0;
 
-        Debug.Log(aim.collider);
-        Debug.Log("Current time to aim: " + currentTimeToAim);
-        Debug.Log("Current shot cooldown: " + currentShotCooldown);
-
         if (HasStartedToAim())
         {
             Aim(aim);
             TryToShot(aim);
         }
-        Debug.DrawRay(aimOrigin.transform.position, aimOrigin.transform.right, Color.red);
     }
 
     private RaycastHit2D GetGunAim() => Physics2D.Raycast(aimOrigin.transform.position, aimOrigin.transform.right, weaponRange, gunSettings.collisionLayerMask);
