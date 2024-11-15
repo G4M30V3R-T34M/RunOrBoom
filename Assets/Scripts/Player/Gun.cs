@@ -35,6 +35,10 @@ public class Gun : MonoBehaviour
         currentTimeToAim = AimingToEnemy(aim) ? currentTimeToAim + Time.deltaTime : 0;
         currentShotCooldown = AimingToEnemy(aim) ? currentShotCooldown : 0;
 
+        Debug.Log(aim.collider);
+        Debug.Log("Current time to aim: " + currentTimeToAim);
+        Debug.Log("Current shot cooldown: " + currentShotCooldown);
+
         if (HasStartedToAim())
         {
             Aim(aim);
@@ -49,7 +53,7 @@ public class Gun : MonoBehaviour
 
     private void Aim(RaycastHit2D aim) => currentShotCooldown += Time.deltaTime;
 
-    private bool AimingToEnemy(RaycastHit2D hit) => hit.collider != null && hit.collider.gameObject.layer == (int)Layer.Enemy;
+    private bool AimingToEnemy(RaycastHit2D hit) => hit.collider != null && hit.collider.gameObject.layer == (int)gunSettings.enemyLayer;
 
     private void TryToShot(RaycastHit2D hit)
     {

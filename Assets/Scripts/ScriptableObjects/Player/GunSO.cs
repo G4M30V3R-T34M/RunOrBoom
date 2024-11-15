@@ -10,7 +10,8 @@ public class GunSO : ScriptableObject
     [Header("Distance configurations")]
     public float range;
 
-    [Header("Layer collision configurations")]
+    [Header("Layer configurations")]
+    public Layer enemyLayer;
     public Layer[] collisionLayers;
     public int collisionLayerMask;
 
