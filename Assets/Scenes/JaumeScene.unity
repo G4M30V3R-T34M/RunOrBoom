@@ -268,11 +268,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &849119248 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2218084058307438758, guid: 17c46ceeeb17aa940824bb2913ccb9ba, type: 3}
-  m_PrefabInstance: {fileID: 1381978013}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1381978013
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -285,14 +280,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyPrototype
       objectReference: {fileID: 0}
-    - target: {fileID: 3711326962596376668, guid: 17c46ceeeb17aa940824bb2913ccb9ba, type: 3}
-      propertyPath: aimOrigin
-      value: 
-      objectReference: {fileID: 849119248}
-    - target: {fileID: 3711326962596376668, guid: 17c46ceeeb17aa940824bb2913ccb9ba, type: 3}
-      propertyPath: gunSettings
-      value: 
-      objectReference: {fileID: 11400000, guid: 84fbdc07322840348940ca852de9659a, type: 2}
     - target: {fileID: 3977679582080127334, guid: 17c46ceeeb17aa940824bb2913ccb9ba, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.7

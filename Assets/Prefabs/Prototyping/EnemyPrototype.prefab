@@ -174,7 +174,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2986802495499971018}
   - component: {fileID: 7722505548808972996}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Triangle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -259,6 +259,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3977679582080127334}
     m_Modifications:
+    - target: {fileID: 4563917880972617480, guid: 24aee6d21c241ff40908de03c6a7fb1b, type: 3}
+      propertyPath: aimOrigin
+      value: 
+      objectReference: {fileID: 2218084058307438758}
+    - target: {fileID: 4563917880972617480, guid: 24aee6d21c241ff40908de03c6a7fb1b, type: 3}
+      propertyPath: gunSettings
+      value: 
+      objectReference: {fileID: 11400000, guid: 84fbdc07322840348940ca852de9659a, type: 2}
+    - target: {fileID: 4696007743177680587, guid: 24aee6d21c241ff40908de03c6a7fb1b, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 4985839473716419434, guid: 24aee6d21c241ff40908de03c6a7fb1b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.494
@@ -302,6 +314,10 @@ PrefabInstance:
     - target: {fileID: 6415024631236724861, guid: 24aee6d21c241ff40908de03c6a7fb1b, type: 3}
       propertyPath: m_Name
       value: Gun
+      objectReference: {fileID: 0}
+    - target: {fileID: 6415024631236724861, guid: 24aee6d21c241ff40908de03c6a7fb1b, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
