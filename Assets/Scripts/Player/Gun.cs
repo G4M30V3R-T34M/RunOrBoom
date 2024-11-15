@@ -17,49 +17,51 @@ public class Gun : MonoBehaviour
     [SerializeField]
     GunSO gunSettings;
 
-    float currentAimTime = 0;
-    LineRenderer lineRenderer;
+    private float currentTimeToAim = 0;
+    private float currentShotCooldown = 0;
+
+    private float weaponRange;
+
+    private LineRenderer lineRenderer;
 
     private void Awake() => lineRenderer = trailOrigin.GetComponent<LineRenderer>();
+
+    private void Start() => weaponRange = gunSettings.range == 0 ? Mathf.Infinity : gunSettings.range;
 
     private void Update()
     {
         RaycastHit2D aim = GetGunAim();
 
-        if (AimingToEnemy(aim))
+        currentTimeToAim = AimingToEnemy(aim) ? currentTimeToAim + Time.deltaTime : 0;
+        currentShotCooldown = AimingToEnemy(aim) ? currentShotCooldown : 0;
+
+        if (HasStartedToAim())
         {
+            Aim(aim);
             TryToShot(aim);
         }
-        else
-        {
-            currentAimTime = 0;
-        }
+        Debug.DrawRay(aimOrigin.transform.position, aimOrigin.transform.right, Color.red);
     }
 
-    private RaycastHit2D GetGunAim()
-    {
-        // Get mouse position
-        Vector3 mouseWorldPosition = MouseHelper.GetPosition();
+    private RaycastHit2D GetGunAim() => Physics2D.Raycast(aimOrigin.transform.position, aimOrigin.transform.right, weaponRange, gunSettings.collisionLayerMask);
 
-        // Compute direction
-        Vector2 direction = (mouseWorldPosition - aimOrigin.transform.position).normalized;
+    private bool HasStartedToAim() => currentTimeToAim >= gunSettings.timeToAim;
 
-        // Perform raycast from virtual bullet origin
-        return Physics2D.Raycast(aimOrigin.transform.position, direction);
-    }
+    private void Aim(RaycastHit2D aim) => currentShotCooldown += Time.deltaTime;
 
     private bool AimingToEnemy(RaycastHit2D hit) => hit.collider != null && hit.collider.gameObject.layer == (int)Layer.Enemy;
 
     private void TryToShot(RaycastHit2D hit)
     {
-        currentAimTime += Time.deltaTime;
-        if (currentAimTime >= gunSettings.aimTime)
+        if (currentShotCooldown >= gunSettings.shotCooldown)
         {
-            VisualShot(hit);
-            currentAimTime = 0;
+            // Pending apply damage to target
+            VisualShot(hit); // Remove when Event is implement
+            currentShotCooldown = 0;
         }
     }
 
+    // Pending move to other script when Event is implemented
     private void VisualShot(RaycastHit2D hit)
     {
         lineRenderer.SetPosition(0, trailOrigin.transform.position);
@@ -67,6 +69,7 @@ public class Gun : MonoBehaviour
         StartCoroutine(RenderLine());
     }
 
+    // Pending move to other script when Event is implemented
     private IEnumerator RenderLine()
     {
         lineRenderer.enabled = true;
