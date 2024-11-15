@@ -15,4 +15,7 @@ MonoBehaviour:
   shotCooldown: 0.5
   timeToAim: 1
   range: 0
+  enemyLayer: 6
+  collisionLayers: 0600000008000000
+  collisionLayerMask: 320
   gunSprite: {fileID: 0}

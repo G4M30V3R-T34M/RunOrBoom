@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: DefaultGunSO
   m_EditorClassIdentifier: 
   shotCooldown: 0.5
-  timeToAim: 0
+  timeToAim: 1
   range: 0
+  enemyLayer: 7
+  collisionLayers: 0700000008000000
+  collisionLayerMask: 384
   gunSprite: {fileID: 0}
