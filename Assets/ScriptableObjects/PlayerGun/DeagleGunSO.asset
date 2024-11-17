@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c609f29a4394034582c519746d9ae42, type: 3}
   m_Name: DeagleGunSO
   m_EditorClassIdentifier: 
-  shotCooldown: 0
-  timeToAim: 0
+  aimingTime: 0.6
+  reactionTime: 0
   range: 0
-  enemyLayer: 7
+  targetLayer: 7
   collisionLayers: 07000000
   collisionLayerMask: 128
   gunSprite: {fileID: 0}
