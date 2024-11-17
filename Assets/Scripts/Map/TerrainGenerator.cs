@@ -15,10 +15,10 @@ public partial class TerrainGenerator : MonoBehaviour
     [SerializeField] private ObjectPool _enemies;
     [SerializeField] private ObjectPool _obstacles; // tables
     [SerializeField] private ObjectPool _secretCodes;
-    [SerializeField] private ObjectPool _weapons; // ¿Weapons on the floor?
 
     private bool[,] _roomGrid;
     private Vector2 _startingRoom;
+    //private List<(Vector2Int, Vector2Int)> _extraWalls;
 
     private int _placedSecredCodes = 0;
     private int _generatedRooms = 0;
@@ -28,9 +28,17 @@ public partial class TerrainGenerator : MonoBehaviour
         MapGenerator _mapGenerator = new(_terrainConfig.numberOfRooms);
         _roomGrid = _mapGenerator.Generate();
         _startingRoom = SelectPlayerStartingRoom();
+
+        // Currently extra walls are not used
+        /*
+        WallGenerator wallGenerator = new(_roomGrid);
+        _extraWalls = wallGenerator.GenerateWalls();
+        */
     }
 
-    private void Start()
+    private void Start() => GenerateRooms();
+
+    private void GenerateRooms()
     {
         for (int x = 0; x < _roomGrid.GetLength(0); x++)
         {
@@ -38,13 +46,13 @@ public partial class TerrainGenerator : MonoBehaviour
             {
                 if (_roomGrid[x, y])
                 {
-                    GenerateRoom(new Vector2(x, y));
+                    GenerateRoom(new Vector2Int(x, y));
                 }
             }
         }
     }
 
-    private Vector2 SelectPlayerStartingRoom()
+    private Vector2Int SelectPlayerStartingRoom()
     {
         int roomIndex = Random.Range(0, _terrainConfig.numberOfRooms);
         for (int x = 0; x < _roomGrid.GetLength(0); x++)
@@ -55,7 +63,7 @@ public partial class TerrainGenerator : MonoBehaviour
                 {
                     if (roomIndex == 0)
                     {
-                        return new Vector2(x, y);
+                        return new Vector2Int(x, y);
                     }
                     else
                     {
@@ -65,17 +73,17 @@ public partial class TerrainGenerator : MonoBehaviour
             }
         }
         // Should hever happen
-        return new Vector2(0, 0);
+        return new Vector2Int(0, 0);
     }
 
-    private void GenerateRoom(Vector2 roomIndex)
+    private void GenerateRoom(Vector2Int roomIndex)
     {
         AdjacentRooms adjacentRooms = new()
         {
-            Up = HasRoomInDirection(roomIndex, Vector2.up),
-            Right = HasRoomInDirection(roomIndex, Vector2.right),
-            Down = HasRoomInDirection(roomIndex, Vector2.down),
-            Left = HasRoomInDirection(roomIndex, Vector2.left),
+            Up = HasRoomInDirection(roomIndex, Vector2Int.up),
+            Right = HasRoomInDirection(roomIndex, Vector2Int.right),
+            Down = HasRoomInDirection(roomIndex, Vector2Int.down),
+            Left = HasRoomInDirection(roomIndex, Vector2Int.left),
         };
 
         float xPosition = (_startingRoom.x - roomIndex.x) * _terrainConfig.roomSize;
@@ -86,36 +94,36 @@ public partial class TerrainGenerator : MonoBehaviour
 
         // Up and Right, add doors if required
         // Down and Left, leave that logic to "the connected room"
-        CheckLimitsPrimary(Vector2.up, roomPosition, adjacentRooms);
-        CheckLimitsPrimary(Vector2.right, roomPosition, adjacentRooms);
-        CheckLimitsSecondary(Vector2.down, roomPosition, adjacentRooms);
-        CheckLimitsSecondary(Vector2.left, roomPosition, adjacentRooms);
+        CheckLimitsPrimary(Vector2Int.up, roomPosition, adjacentRooms);
+        CheckLimitsPrimary(Vector2Int.right, roomPosition, adjacentRooms);
+        CheckLimitsSecondary(Vector2Int.down, roomPosition, adjacentRooms);
+        CheckLimitsSecondary(Vector2Int.left, roomPosition, adjacentRooms);
 
         CheckCorners(roomPosition, adjacentRooms);
 
         GenerateRoomElements(roomPosition, roomIndex == _startingRoom);
     }
 
-    private bool HasRoomInDirection(Vector2 roomIndex, Vector2 direction)
+    private bool HasRoomInDirection(Vector2Int roomIndex, Vector2Int direction)
     {
         if (IsOutOfGrid(roomIndex, direction))
         {
             return false;
         }
 
-        int newX = (int)(roomIndex.x + direction.x);
-        int newY = (int)(roomIndex.y + direction.y);
+        int newX = roomIndex.x + direction.x;
+        int newY = roomIndex.y + direction.y;
         return _roomGrid[newX, newY];
     }
 
-    private bool IsOutOfGrid(Vector2 roomIndex, Vector2 direction) =>
-        direction == Vector2.up && (int)roomIndex.x == _roomGrid.GetLength(0) - 1 ||
-        direction == Vector2.down && (int)roomIndex.x == 0 ||
-        direction == Vector2.right && (int)roomIndex.y == _roomGrid.GetLength(1) - 1 ||
-        direction == Vector2.left && (int)roomIndex.y == 0;
+    private bool IsOutOfGrid(Vector2Int roomIndex, Vector2Int direction) =>
+        direction == Vector2.up && roomIndex.x == _roomGrid.GetLength(0) - 1 ||
+        direction == Vector2.down && roomIndex.x == 0 ||
+        direction == Vector2.right && roomIndex.y == _roomGrid.GetLength(1) - 1 ||
+        direction == Vector2.left && roomIndex.y == 0;
 
     private void CheckLimitsPrimary(
-        Vector2 direction,
+        Vector2Int direction,
         Vector2 roomPosition,
         AdjacentRooms adjacentRooms)
     {
@@ -128,7 +136,7 @@ public partial class TerrainGenerator : MonoBehaviour
         }
         else
         {
-            AddWall(roomPosition, Vector2.up);
+            AddWall(roomPosition, Vector2Int.up);
         }
     }
 
@@ -136,7 +144,7 @@ public partial class TerrainGenerator : MonoBehaviour
         => (Random.Range(0, 100) < _terrainConfig.doorChance);
 
     private void CheckLimitsSecondary(
-        Vector2 direction,
+        Vector2Int direction,
         Vector2 roomPosition,
         AdjacentRooms adjacentRooms)
     {
@@ -147,42 +155,34 @@ public partial class TerrainGenerator : MonoBehaviour
         }
         else
         {
-            AddWall(roomPosition, Vector2.up);
+            AddWall(roomPosition, Vector2Int.up);
         }
     }
 
     private void CheckCorners(Vector2 roomPosition, AdjacentRooms adjacentRooms)
     {
-        AddCorner(roomPosition, Vector2.up + Vector2.right);
+        AddCorner(roomPosition, Vector2Int.up + Vector2Int.right);
 
         if (!adjacentRooms.Left)
         {
-            AddCorner(roomPosition, Vector2.up + Vector2.left);
+            AddCorner(roomPosition, Vector2Int.up + Vector2Int.left);
         }
 
         if (!adjacentRooms.Down)
         {
-            AddCorner(roomPosition, Vector2.down + Vector2.right);
+            AddCorner(roomPosition, Vector2Int.down + Vector2Int.right);
         }
 
         if (!adjacentRooms.Left && !adjacentRooms.Down)
         {
-            AddCorner(roomPosition, Vector2.down + Vector2.left);
+            AddCorner(roomPosition, Vector2Int.down + Vector2Int.left);
         }
     }
 
-    private void GenerateRoomElements(Vector2 roomPosition, bool isPlayerStartRoom)
+    private void GenerateRoomElements(
+        Vector2 roomPosition,
+        bool isPlayerStartRoom)
     {
-        // StartingRoom shouldn't have secrets nor enemies
-
-        int[,] roomParts = new int[4, 4];
-
-        // If should have secret
-        // 
-
-        // Obstacles
-        // Secrets
-        // Enemies
-
+        // TODO: Use RoomElementsGenerator
     }
 }
