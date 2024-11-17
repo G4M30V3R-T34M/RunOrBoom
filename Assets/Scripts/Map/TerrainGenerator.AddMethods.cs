@@ -39,7 +39,7 @@ public partial class TerrainGenerator
         float yPosition = roomPosition.y + direction.y * (_terrainConfig.roomSize / 2);
         Vector2 position = new(xPosition, yPosition);
 
-        float rotation = (direction == Vector2.right || direction == Vector2.left) ? 90 : 0;
+        float rotation = (direction == Vector2Int.right || direction == Vector2Int.left) ? 90 : 0;
 
         poolableObject.transform.position = position;
         poolableObject.transform.Rotate(new Vector3(0, 0, rotation));

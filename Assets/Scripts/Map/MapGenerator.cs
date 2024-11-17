@@ -37,11 +37,11 @@ public class MapGenerator
 
     private bool TryPlaceRoom(int placedRooms, ref bool[,] roomGrid)
     {
-        Vector2 existingRoom = GetRandomRoom(placedRooms, ref roomGrid);
+        Vector2Int existingRoom = GetRandomRoom(placedRooms, ref roomGrid);
         return TryAddAjdacentRoom(existingRoom, ref roomGrid);
     }
 
-    private Vector2 GetRandomRoom(int placedRooms, ref bool[,] roomGrid)
+    private Vector2Int GetRandomRoom(int placedRooms, ref bool[,] roomGrid)
     {
         int selectedRoom = Random.Range(0, placedRooms);
 
@@ -49,27 +49,30 @@ public class MapGenerator
         {
             for (int j = 0; j < roomGrid.GetLength(1); j++)
             {
-                if (roomGrid[i, j] && selectedRoom == 0)
+                if (roomGrid[i, j])
                 {
-                    return new Vector2(i, j);
-                }
-                else
-                {
-                    selectedRoom--;
+                    if (selectedRoom == 0)
+                    {
+                        return new Vector2Int(i, j);
+                    }
+                    else
+                    {
+                        selectedRoom--;
+                    }
                 }
             }
         }
         throw new RoomNotFoundException();
     }
 
-    private bool TryAddAjdacentRoom(Vector2 existingRoom, ref bool[,] roomGrid)
+    private bool TryAddAjdacentRoom(Vector2Int existingRoom, ref bool[,] roomGrid)
     {
         int startingDirection = Random.Range(0, 4);
         int nextDirection = startingDirection;
 
         do
         {
-            Vector2 direction = GetDirectionAsVector(nextDirection);
+            Vector2Int direction = GetDirectionAsVector(nextDirection);
             if (IsValidDirection(direction, existingRoom, roomGrid))
             {
                 PlaceAdjacentRoom(direction, existingRoom, ref roomGrid);
@@ -82,29 +85,29 @@ public class MapGenerator
         return false;
     }
 
-    private Vector2 GetDirectionAsVector(int nextDirection) => nextDirection switch
+    private Vector2Int GetDirectionAsVector(int nextDirection) => nextDirection switch
     {
-        0 => Vector2.up,
-        1 => Vector2.right,
-        2 => Vector2.down,
-        3 => Vector2.left,
-        _ => Vector2.zero, // should never happen
+        0 => Vector2Int.up,
+        1 => Vector2Int.right,
+        2 => Vector2Int.down,
+        3 => Vector2Int.left,
+        _ => Vector2Int.zero, // should never happen
     };
 
-    private bool IsValidDirection(Vector2 direction, Vector2 room, bool[,] roomGrid)
+    private bool IsValidDirection(Vector2Int direction, Vector2Int room, bool[,] roomGrid)
     {
         // out of bounds
         if (room.x == 0 && direction.x == -1 ||
-            room.x == roomGrid.Length - 1 && direction.x == 1 ||
+            room.x == roomGrid.GetLength(0) - 1 && direction.x == 1 ||
             room.y == 0 && direction.y == -1 ||
-            room.y == roomGrid.Length - 1 && direction.y == 1)
+            room.y == roomGrid.GetLength(1) - 1 && direction.y == 1)
         {
             return false;
         }
 
         // room already placed there
-        int newRoomX = (int)(room.x + direction.x);
-        int newRoomY = (int)(room.y + direction.y);
+        int newRoomX = (room.x + direction.x);
+        int newRoomY = (room.y + direction.y);
         return !(roomGrid[newRoomX, newRoomY]);
     }
 

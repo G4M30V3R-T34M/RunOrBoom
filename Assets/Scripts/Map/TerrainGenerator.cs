@@ -127,9 +127,9 @@ public partial class TerrainGenerator : MonoBehaviour
 
     private readonly Vector2Int directionDownLeft = new(-1, -1);
     private bool IsOutOfGrid(Vector2Int roomIndex, Vector2Int direction)
-        => direction == Vector2Int.up && roomIndex.y == _roomGrid.Length - 1
+        => direction == Vector2Int.up && roomIndex.y == _roomGrid.GetLength(1) - 1
             || direction == Vector2Int.down && roomIndex.y == 0
-            || direction == Vector2Int.right && roomIndex.x == _roomGrid.Length - 1
+            || direction == Vector2Int.right && roomIndex.x == _roomGrid.GetLength(0) - 1
             || direction == Vector2Int.left && roomIndex.x == 0
             || direction == directionDownLeft && (roomIndex.y == 0 || roomIndex.x == 0);
 

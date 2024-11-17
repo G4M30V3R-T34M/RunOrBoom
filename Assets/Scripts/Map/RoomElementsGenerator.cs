@@ -86,10 +86,10 @@ public class RoomElementsGenerator
         }
     }
 
-    private Vector2 FindRandomFreeRoomPosition(RoomElement[,] roomElements)
+    private Vector2Int FindRandomFreeRoomPosition(RoomElement[,] roomElements)
     {
-        int startingX = Random.Range(0, roomElements.Length);
-        int startingY = Random.Range(0, roomElements.Length);
+        int startingX = Random.Range(0, roomElements.GetLength(0));
+        int startingY = Random.Range(0, roomElements.GetLength(1));
 
         int x = startingX;
         int y = startingY;
@@ -103,11 +103,11 @@ public class RoomElementsGenerator
             }
             else
             {
-                NextPosition(ref x, ref y, roomElements.Length);
+                NextPosition(ref x, ref y, roomElements.GetLength(0));
             }
         } while (!placeFound && !(x == startingX && y == startingY));
 
-        return new Vector2(x, y);
+        return new Vector2Int(x, y);
     }
 
     private void NextPosition(ref int x, ref int y, int length)
