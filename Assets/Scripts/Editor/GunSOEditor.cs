@@ -22,27 +22,36 @@ public class GunSOEditor : Editor
         property.NextVisible(true);
         while (property.NextVisible(false))
         {
-            if (property.name != "collisionLayerMask")
+            if (property.name == "collisionLayerMask")
             {
-                EditorGUILayout.PropertyField(property, true);
+                DisplayLayerMask(gunSo);
+                AddGenerateLayerMaskButton(gunSo);
             }
             else
             {
-                // Display the LayerMask as read-only
-                EditorGUI.BeginDisabledGroup(true);
-                EditorGUILayout.IntField("Generated Collision LayerMask", gunSo.collisionLayerMask);
-                EditorGUI.EndDisabledGroup();
-
-                // Add a button to generate the LayerMask
-                if (GUILayout.Button("Generate LayerMask"))
-                {
-                    gunSo.collisionLayerMask = CreateLayerMask(gunSo.collisionLayers);
-                    Debug.Log("Generated LayerMask: " + gunSo.collisionLayerMask);
-
-                    // Mark the ScriptableObject as dirty to save changes
-                    EditorUtility.SetDirty(gunSo);
-                }
+                EditorGUILayout.PropertyField(property, true);
             }
+        }
+    }
+
+    private void DisplayLayerMask(GunSO gunSo)
+    {
+        // Display the LayerMask as read-only
+        EditorGUI.BeginDisabledGroup(true);
+        EditorGUILayout.IntField("Generated Collision LayerMask", gunSo.collisionLayerMask);
+        EditorGUI.EndDisabledGroup();
+    }
+
+    private void AddGenerateLayerMaskButton(GunSO gunSo)
+    {
+        // Add a button to generate the LayerMask
+        if (GUILayout.Button("Generate LayerMask"))
+        {
+            gunSo.collisionLayerMask = CreateLayerMask(gunSo.collisionLayers);
+            Debug.Log("Generated LayerMask: " + gunSo.collisionLayerMask);
+
+            // Mark the ScriptableObject as dirty to save changes
+            EditorUtility.SetDirty(gunSo);
         }
     }
 
