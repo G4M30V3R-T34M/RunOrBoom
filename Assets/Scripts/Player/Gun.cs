@@ -17,8 +17,8 @@ public class Gun : MonoBehaviour
     [SerializeField]
     GunSO gunSettings;
 
-    private float currentTimeToAim = 0;
-    private float currentShotCooldown = 0;
+    private float currentReactionTime = 0;
+    private float currentAimTime = 0;
 
     private float weaponRange;
 
@@ -30,33 +30,40 @@ public class Gun : MonoBehaviour
 
     private void Update()
     {
-        RaycastHit2D aim = GetGunAim();
+        RaycastHit2D hit = GetGunAim();
 
-        currentTimeToAim = AimingToEnemy(aim) ? currentTimeToAim + Time.deltaTime : 0;
-        currentShotCooldown = AimingToEnemy(aim) ? currentShotCooldown : 0;
+        if (AimingToTarget(hit))
+        {
+            currentReactionTime += Time.deltaTime;
+        }
+        else
+        {
+            currentReactionTime = 0;
+            currentAimTime = 0;
+        }
 
         if (HasStartedToAim())
         {
-            Aim(aim);
-            TryToShot(aim);
+            Aim(hit);
+            TryToShot(hit);
         }
     }
 
     private RaycastHit2D GetGunAim() => Physics2D.Raycast(aimOrigin.transform.position, aimOrigin.transform.right, weaponRange, gunSettings.collisionLayerMask);
 
-    private bool HasStartedToAim() => currentTimeToAim >= gunSettings.timeToAim;
+    private bool HasStartedToAim() => currentReactionTime >= gunSettings.reactionTime;
 
-    private void Aim(RaycastHit2D aim) => currentShotCooldown += Time.deltaTime;
+    private void Aim(RaycastHit2D hit) => currentAimTime += Time.deltaTime;
 
-    private bool AimingToEnemy(RaycastHit2D hit) => hit.collider != null && hit.collider.gameObject.layer == (int)gunSettings.enemyLayer;
+    private bool AimingToTarget(RaycastHit2D hit) => hit.collider != null && hit.collider.gameObject.layer == (int)gunSettings.targetLayer;
 
     private void TryToShot(RaycastHit2D hit)
     {
-        if (currentShotCooldown >= gunSettings.shotCooldown)
+        if (currentAimTime >= gunSettings.aimingTime)
         {
             // Pending apply damage to target
             VisualShot(hit); // Remove when Event is implement
-            currentShotCooldown = 0;
+            currentAimTime = 0;
         }
     }
 
