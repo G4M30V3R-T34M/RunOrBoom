@@ -4,14 +4,14 @@ using UnityEngine;
 public class GunSO : ScriptableObject
 {
     [Header("Time configurations")]
-    public float shotCooldown;
-    public float timeToAim;
+    public float aimingTime;
+    public float reactionTime;
 
     [Header("Distance configurations")]
     public float range;
 
     [Header("Layer configurations")]
-    public Layer enemyLayer;
+    public Layer targetLayer;
     public Layer[] collisionLayers;
     public int collisionLayerMask;
 
