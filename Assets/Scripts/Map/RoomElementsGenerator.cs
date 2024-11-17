@@ -22,7 +22,7 @@ public class RoomElementsGenerator
         _terrainConfig = terrainConfig;
     }
 
-    public void GenerateRooms(
+    public void GenerateRoom(
         Vector2 roomPosition,
         ref int placedSecretCodes,
         int generatedRooms,

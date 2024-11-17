@@ -23,9 +23,17 @@ public partial class TerrainGenerator : MonoBehaviour
     private int _placedSecredCodes = 0;
     private int _generatedRooms = 0;
 
+    RoomElementsGenerator _roomElementsGenerator;
+    MapGenerator _mapGenerator;
+
     private void Awake()
     {
-        MapGenerator _mapGenerator = new(_terrainConfig.numberOfRooms);
+        _roomElementsGenerator = new(_enemies, _obstacles, _secretCodes, _terrainConfig);
+        _mapGenerator = new(_terrainConfig.numberOfRooms);
+    }
+
+    private void Start()
+    {
         _roomGrid = _mapGenerator.Generate();
         _startingRoom = SelectPlayerStartingRoom();
 
@@ -34,9 +42,9 @@ public partial class TerrainGenerator : MonoBehaviour
         WallGenerator wallGenerator = new(_roomGrid);
         _extraWalls = wallGenerator.GenerateWalls();
         */
-    }
 
-    private void Start() => GenerateRooms();
+        GenerateRooms();
+    }
 
     private void GenerateRooms()
     {
@@ -134,7 +142,7 @@ public partial class TerrainGenerator : MonoBehaviour
         {
             if (ShouldAddDoor())
             {
-                // Add Door
+                AddDoor(roomPosition, direction);
             } // Else : leave open, it's a big room
         }
         else
@@ -185,7 +193,9 @@ public partial class TerrainGenerator : MonoBehaviour
     private void GenerateRoomElements(
         Vector2 roomPosition,
         bool isPlayerStartRoom)
-    {
-        // TODO: Use RoomElementsGenerator
-    }
+        => _roomElementsGenerator.GenerateRoom(
+            roomPosition,
+            ref _placedSecredCodes,
+            _generatedRooms,
+            isPlayerStartRoom);
 }
