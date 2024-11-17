@@ -95,8 +95,8 @@ public partial class TerrainGenerator : MonoBehaviour
             DownLeft = HasRoomInDirection(roomIndex, Vector2Int.down + Vector2Int.left)
         };
 
-        float xPosition = (_startingRoom.x - roomIndex.x) * _terrainConfig.roomSize;
-        float yPosition = (_startingRoom.y - roomIndex.y) * _terrainConfig.roomSize;
+        float xPosition = (roomIndex.x - _startingRoom.x) * _terrainConfig.roomSize;
+        float yPosition = (roomIndex.y - _startingRoom.y) * _terrainConfig.roomSize;
         Vector2 roomPosition = new(xPosition, yPosition);
 
         AddFloor(roomPosition);
@@ -147,7 +147,7 @@ public partial class TerrainGenerator : MonoBehaviour
         }
         else
         {
-            AddWall(roomPosition, Vector2Int.up);
+            AddWall(roomPosition, direction);
         }
     }
 
@@ -166,7 +166,7 @@ public partial class TerrainGenerator : MonoBehaviour
         }
         else
         {
-            AddWall(roomPosition, Vector2Int.up);
+            AddWall(roomPosition, direction);
         }
     }
 

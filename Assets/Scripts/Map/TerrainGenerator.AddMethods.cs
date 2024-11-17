@@ -41,6 +41,7 @@ public partial class TerrainGenerator
 
         float rotation = (direction == Vector2Int.right || direction == Vector2Int.left) ? 90 : 0;
 
+        poolableObject.transform.SetPositionAndRotation(Vector3.zero, Quaternion.identity);
         poolableObject.transform.position = position;
         poolableObject.transform.Rotate(new Vector3(0, 0, rotation));
         poolableObject.gameObject.SetActive(true);
