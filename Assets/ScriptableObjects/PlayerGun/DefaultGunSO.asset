@@ -12,4 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c609f29a4394034582c519746d9ae42, type: 3}
   m_Name: DefaultGunSO
   m_EditorClassIdentifier: 
-  aimTime: 0.5
+  shotCooldown: 0.5
+  timeToAim: 1
+  range: 0
+  enemyLayer: 7
+  collisionLayers: 0700000008000000
+  collisionLayerMask: 384
+  gunSprite: {fileID: 0}
