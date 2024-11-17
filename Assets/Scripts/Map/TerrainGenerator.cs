@@ -73,7 +73,7 @@ public partial class TerrainGenerator : MonoBehaviour
             }
         }
         // Should hever happen
-        return new Vector2Int(0, 0);
+        return new Vector2Int(-1, -1);
     }
 
     private void GenerateRoom(Vector2Int roomIndex)
@@ -84,6 +84,7 @@ public partial class TerrainGenerator : MonoBehaviour
             Right = HasRoomInDirection(roomIndex, Vector2Int.right),
             Down = HasRoomInDirection(roomIndex, Vector2Int.down),
             Left = HasRoomInDirection(roomIndex, Vector2Int.left),
+            DownLeft = HasRoomInDirection(roomIndex, Vector2Int.down + Vector2Int.left)
         };
 
         float xPosition = (_startingRoom.x - roomIndex.x) * _terrainConfig.roomSize;
@@ -116,11 +117,13 @@ public partial class TerrainGenerator : MonoBehaviour
         return _roomGrid[newX, newY];
     }
 
-    private bool IsOutOfGrid(Vector2Int roomIndex, Vector2Int direction) =>
-        direction == Vector2.up && roomIndex.x == _roomGrid.GetLength(0) - 1 ||
-        direction == Vector2.down && roomIndex.x == 0 ||
-        direction == Vector2.right && roomIndex.y == _roomGrid.GetLength(1) - 1 ||
-        direction == Vector2.left && roomIndex.y == 0;
+    private readonly Vector2Int directionDownLeft = new(-1, -1);
+    private bool IsOutOfGrid(Vector2Int roomIndex, Vector2Int direction)
+        => direction == Vector2Int.up && roomIndex.y == _roomGrid.Length - 1
+            || direction == Vector2Int.down && roomIndex.y == 0
+            || direction == Vector2Int.right && roomIndex.x == _roomGrid.Length - 1
+            || direction == Vector2Int.left && roomIndex.x == 0
+            || direction == directionDownLeft && (roomIndex.y == 0 || roomIndex.x == 0);
 
     private void CheckLimitsPrimary(
         Vector2Int direction,
@@ -173,7 +176,7 @@ public partial class TerrainGenerator : MonoBehaviour
             AddCorner(roomPosition, Vector2Int.down + Vector2Int.right);
         }
 
-        if (!adjacentRooms.Left && !adjacentRooms.Down)
+        if (!adjacentRooms.Left && !adjacentRooms.Down && !adjacentRooms.DownLeft)
         {
             AddCorner(roomPosition, Vector2Int.down + Vector2Int.left);
         }
