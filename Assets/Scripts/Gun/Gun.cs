@@ -20,9 +20,13 @@ public class Gun : MonoBehaviour
 
     private LineRenderer lineRenderer;
 
-    private void Awake() => lineRenderer = trailOrigin.GetComponent<LineRenderer>();
+    private void Awake()
+        => lineRenderer = trailOrigin.GetComponent<LineRenderer>();
 
-    private void Start() => weaponRange = gunSettings.range == 0 ? Mathf.Infinity : gunSettings.range;
+    private void Start()
+        => weaponRange = (gunSettings.range == 0)
+            ? Mathf.Infinity
+            : gunSettings.range;
 
     private void Update()
     {
@@ -45,13 +49,20 @@ public class Gun : MonoBehaviour
         }
     }
 
-    private RaycastHit2D GetGunAim() => Physics2D.Raycast(aimOrigin.transform.position, aimOrigin.transform.right, weaponRange, gunSettings.collisionLayerMask);
+    private RaycastHit2D GetGunAim() => Physics2D.Raycast(
+        aimOrigin.transform.position,
+        aimOrigin.transform.right,
+        weaponRange,
+        gunSettings.collisionLayerMask
+    );
 
     private bool CanReact() => currentReactionTime >= gunSettings.reactionTime;
 
     private void Aim(RaycastHit2D hit) => currentAimTime += Time.deltaTime;
 
-    private bool TargetInSight(RaycastHit2D hit) => hit.collider != null && hit.collider.gameObject.layer == (int)gunSettings.targetLayer;
+    private bool TargetInSight(RaycastHit2D hit)
+        => hit.collider != null
+            && hit.collider.gameObject.layer == (int)gunSettings.targetLayer;
 
     private void TryToShot(RaycastHit2D hit)
     {
