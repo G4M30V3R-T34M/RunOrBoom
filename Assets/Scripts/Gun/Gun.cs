@@ -4,18 +4,14 @@ using UnityEngine;
 public class Gun : MonoBehaviour
 {
     [Header("Ray origins")]
-    [SerializeField]
-    GameObject trailOrigin;
-    [SerializeField]
-    GameObject aimOrigin;
+    [SerializeField] GameObject trailOrigin;
+    [SerializeField] GameObject aimOrigin;
 
     [Header("Visual trail configuration")]
-    [SerializeField]
-    float trailDuration;
+    [SerializeField] float trailDuration;
 
     [Header("Current weapon settings")]
-    [SerializeField]
-    GunSO gunSettings;
+    [SerializeField] GunSO gunSettings;
 
     private float currentReactionTime = 0;
     private float currentAimTime = 0;
@@ -32,7 +28,7 @@ public class Gun : MonoBehaviour
     {
         RaycastHit2D hit = GetGunAim();
 
-        if (AimingToTarget(hit))
+        if (TargetInSight(hit))
         {
             currentReactionTime += Time.deltaTime;
         }
@@ -42,7 +38,7 @@ public class Gun : MonoBehaviour
             currentAimTime = 0;
         }
 
-        if (HasStartedToAim())
+        if (CanReact())
         {
             Aim(hit);
             TryToShot(hit);
@@ -51,11 +47,11 @@ public class Gun : MonoBehaviour
 
     private RaycastHit2D GetGunAim() => Physics2D.Raycast(aimOrigin.transform.position, aimOrigin.transform.right, weaponRange, gunSettings.collisionLayerMask);
 
-    private bool HasStartedToAim() => currentReactionTime >= gunSettings.reactionTime;
+    private bool CanReact() => currentReactionTime >= gunSettings.reactionTime;
 
     private void Aim(RaycastHit2D hit) => currentAimTime += Time.deltaTime;
 
-    private bool AimingToTarget(RaycastHit2D hit) => hit.collider != null && hit.collider.gameObject.layer == (int)gunSettings.targetLayer;
+    private bool TargetInSight(RaycastHit2D hit) => hit.collider != null && hit.collider.gameObject.layer == (int)gunSettings.targetLayer;
 
     private void TryToShot(RaycastHit2D hit)
     {
