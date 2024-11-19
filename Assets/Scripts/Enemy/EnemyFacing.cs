@@ -1,8 +1,7 @@
 using UnityEngine;
 
-public class Patrol : MonoBehaviour
+public class EnemyFacing : MonoBehaviour
 {
-    [SerializeField] GameObject parent;
 
     private static readonly LayerMask wall = LayerMaskHelper.CreateLayerMask(new Layer[] { Layer.Wall });
 
@@ -39,7 +38,7 @@ public class Patrol : MonoBehaviour
     }
 
     private float GetWallDistance(Vector2 direction) => Physics2D.Raycast(
-        parent.transform.position,
+        transform.position,
         direction,
         Mathf.Infinity,
         wall
@@ -47,8 +46,7 @@ public class Patrol : MonoBehaviour
 
     private void FaceToDirection(Vector2 direction)
     {
-        Debug.Log(direction);
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        parent.transform.rotation = Quaternion.Euler(0f, 0f, angle);
+        transform.rotation = Quaternion.Euler(0f, 0f, angle);
     }
 }
