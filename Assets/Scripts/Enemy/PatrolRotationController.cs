@@ -1,4 +1,3 @@
-using FeTo.SOArchitecture;
 using UnityEngine;
 
 public class PatrolRotationController : MonoBehaviour
@@ -7,12 +6,12 @@ public class PatrolRotationController : MonoBehaviour
     [SerializeField] GameObject parentToRotate;
 
     [Header("Script configuration")]
-    [SerializeField] GameEvent collisionEvent;
     [SerializeField] EnemySO enemySO;
     [SerializeField] bool rotateRight;
 
     private int rotationMagnitude;
     private Collider2D wallDetector;
+    private PatrolManager patrolManager;
 
     private void Awake() => wallDetector = GetComponent<Collider2D>();
 
@@ -29,7 +28,9 @@ public class PatrolRotationController : MonoBehaviour
     {
         if (collision.gameObject.layer == (int)Layer.Wall)
         {
-            collisionEvent.Raise();
+            patrolManager.CollisionWithWall();
         }
     }
+
+    public void SetManager(PatrolManager manager) => patrolManager = manager;
 }
