@@ -11,6 +11,9 @@ public class VisionController : MonoBehaviour
     [SerializeField] List<MonoBehaviour> visionListeners;
 
     private LayerMask detectionLayerMasks;
+    private LineRenderer lineRenderer;
+
+    private void Awake() => lineRenderer = GetComponent<LineRenderer>();
 
     private void Start()
         => detectionLayerMasks = LayerMaskHelper.CreateLayerMask(
@@ -20,6 +23,7 @@ public class VisionController : MonoBehaviour
     private void Update()
     {
         RaycastHit2D vision = GetVisibility();
+        UpdateVisionLine(vision);
         if (TargetInSight(vision))
         {
             NotifyTagetInSight(vision);
@@ -36,6 +40,20 @@ public class VisionController : MonoBehaviour
         visionRange,
         detectionLayerMasks
     );
+
+    private void UpdateVisionLine(RaycastHit2D vision)
+    {
+        if (vision.collider)
+        {
+            lineRenderer.SetPosition(0, transform.position);
+            lineRenderer.SetPosition(1, vision.point);
+        }
+        else
+        {
+            lineRenderer.SetPosition(0, transform.position);
+            lineRenderer.SetPosition(1, transform.position + (Vector3)transform.right * visionRange);
+        }
+    }
 
     private bool TargetInSight(RaycastHit2D hit)
         => hit.collider != null
