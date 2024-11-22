@@ -6,7 +6,7 @@ public class VisionController : MonoBehaviour
     [SerializeField] float visionRange;
     [SerializeField] Layer[] detectionLayers;
     [SerializeField] Layer targetLayer;
-    // Since Interface are not serializable this array store game objects wich
+    // Since Interface are not serializable this array store game objects which
     // should be IVisionNotificalbe
     [SerializeField] List<MonoBehaviour> visionListeners;
 
