@@ -24,9 +24,7 @@ public class Gun : MonoBehaviour
         => lineRenderer = trailOrigin.GetComponent<LineRenderer>();
 
     private void Start()
-        => weaponRange = (gunSettings.range == 0)
-            ? Mathf.Infinity
-            : gunSettings.range;
+        => weaponRange = GetWeaponRange();
 
     private void Update()
     {
@@ -89,4 +87,9 @@ public class Gun : MonoBehaviour
         yield return new WaitForSeconds(trailDuration);
         lineRenderer.enabled = false;
     }
+
+    private float GetWeaponRange()
+        => (gunSettings.range == 0)
+            ? Mathf.Infinity
+            : gunSettings.range;
 }

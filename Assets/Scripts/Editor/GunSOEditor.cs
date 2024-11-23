@@ -47,30 +47,11 @@ public class GunSOEditor : Editor
         // Add a button to generate the LayerMask
         if (GUILayout.Button("Generate LayerMask"))
         {
-            gunSo.collisionLayerMask = CreateLayerMask(gunSo.collisionLayers);
+            gunSo.collisionLayerMask = LayerMaskHelper.CreateLayerMask(gunSo.collisionLayers);
             Debug.Log("Generated LayerMask: " + gunSo.collisionLayerMask);
 
             // Mark the ScriptableObject as dirty to save changes
             EditorUtility.SetDirty(gunSo);
         }
-    }
-
-    private LayerMask CreateLayerMask(Layer[] layers)
-    {
-        int maskValue = 0;
-        foreach (Layer layer in layers)
-        {
-            int layerIndex = (int)layer;
-            Debug.Log(layerIndex);
-            if (layerIndex >= 0 && layerIndex < 32)
-            {
-                maskValue |= 1 << layerIndex;
-            }
-            else
-            {
-                Debug.LogWarning("Layer index out of bounds: " + layerIndex);
-            }
-        }
-        return maskValue;
     }
 }
