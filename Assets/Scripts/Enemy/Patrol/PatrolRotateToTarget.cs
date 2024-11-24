@@ -3,7 +3,6 @@ using UnityEngine;
 public class PatrolRotateToTarget : MonoBehaviour
 {
     [SerializeField] GameObject parentToRotate;
-    [SerializeField] float rotationSpeed;
     private GameObject target;
 
     private void OnDisable() => target = null;
