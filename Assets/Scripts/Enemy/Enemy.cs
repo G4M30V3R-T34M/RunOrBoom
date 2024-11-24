@@ -1,6 +1,7 @@
+using FeTo.ObjectPool;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Enemy : PoolableObject
 {
     [SerializeField] EnemySO enemySettings;
     private HealthManager healthManager;
