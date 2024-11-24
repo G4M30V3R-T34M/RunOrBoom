@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c609f29a4394034582c519746d9ae42, type: 3}
   m_Name: DefaultGunSO
   m_EditorClassIdentifier: 
+  damage: 1
   aimingTime: 0.5
   reactionTime: 0
   range: 0

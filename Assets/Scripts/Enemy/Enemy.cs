@@ -2,15 +2,12 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    [SerializeField] float health;
+    private HealthManager healthManager;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    private void Awake() => healthManager = GetComponent<HealthManager>();
+
+    private void OnEnable() => healthManager.SetUp(health);
+
+    public void Die() => gameObject.SetActive(false);
 }
