@@ -9,11 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 220a6484a792f3e4fbc56d6d2378b1b8, type: 3}
-  m_Name: EnemySO
+  m_Script: {fileID: 11500000, guid: 2e6a2f986f22d5d4f99c2c64519d564a, type: 3}
+  m_Name: PlayerSO
   m_EditorClassIdentifier: 
-  health: 1
-  rotationSpeed: 100
-  visionRange: 5
-  detectionLayers: 060000000800000009000000
-  targetLayer: 6
+  speed: 10
+  slowDownDuration: 1
+  slowDownValue: 4

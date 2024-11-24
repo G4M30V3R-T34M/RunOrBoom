@@ -135,6 +135,10 @@ PrefabInstance:
       propertyPath: slowDownValue
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 4927907924508296746, guid: 35099cf4b87445e49bc9c34fd3788da5, type: 3}
+      propertyPath: playerSettings
+      value: 
+      objectReference: {fileID: 11400000, guid: de06b8ef68ca87e4695738cc7ca68161, type: 2}
     - target: {fileID: 7675591655725024192, guid: 35099cf4b87445e49bc9c34fd3788da5, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.9137306
@@ -274,7 +278,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d750978033fbaac40984f15f371afb23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 1
+  enemySettings: {fileID: 11400000, guid: cae5529c29bcdce40b9be3258673af71, type: 2}
 --- !u!1 &756239421
 GameObject:
   m_ObjectHideFlags: 0
@@ -420,6 +424,7 @@ GameObject:
   - component: {fileID: 792295591}
   - component: {fileID: 792295590}
   - component: {fileID: 792295589}
+  - component: {fileID: 792295592}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -501,6 +506,50 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &792295592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 792295588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_AllowHDROutput: 1
+  m_UseScreenCoordOverride: 0
+  m_ScreenSizeOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
+  m_TaaSettings:
+    m_Quality: 3
+    m_FrameInfluence: 0.1
+    m_JitterScale: 1
+    m_MipBias: 0
+    m_VarianceClampScale: 0.9
+    m_ContrastAdaptiveSharpening: 0
 --- !u!1 &860600248
 GameObject:
   m_ObjectHideFlags: 0
@@ -1049,6 +1098,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyPrototype
       objectReference: {fileID: 0}
+    - target: {fileID: 2778904561133214084, guid: 17c46ceeeb17aa940824bb2913ccb9ba, type: 3}
+      propertyPath: enemySettings
+      value: 
+      objectReference: {fileID: 11400000, guid: cae5529c29bcdce40b9be3258673af71, type: 2}
     - target: {fileID: 3977679582080127334, guid: 17c46ceeeb17aa940824bb2913ccb9ba, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.48

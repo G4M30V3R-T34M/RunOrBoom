@@ -4,9 +4,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] float speed = 1f;
-    [SerializeField] float slowDownDuration = 1f;
-    [SerializeField] float slowDownValue = 0.2f;
+    [SerializeField] PlayerSO playerSettings;
 
     private Vector2 _movementInput;
     private Rigidbody2D _rigidbody;
@@ -14,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start() => _rigidbody = GetComponent<Rigidbody2D>();
 
-    private void OnEnable() => currentSpeed = speed;
+    private void OnEnable() => currentSpeed = playerSettings.speed;
 
     private void FixedUpdate() => _rigidbody.linearVelocity = _movementInput * currentSpeed;
 
@@ -24,8 +22,8 @@ public class PlayerMovement : MonoBehaviour
 
     private IEnumerator SlowDownCoroutine()
     {
-        currentSpeed -= slowDownValue;
-        yield return new WaitForSeconds(slowDownDuration);
-        currentSpeed += slowDownValue;
+        currentSpeed -= playerSettings.slowDownValue;
+        yield return new WaitForSeconds(playerSettings.slowDownDuration);
+        currentSpeed += playerSettings.slowDownValue;
     }
 }
