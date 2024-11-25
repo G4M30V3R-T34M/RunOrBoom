@@ -16,6 +16,7 @@ public class GunPickUp : PickableItem
     {
         newGunPickUpVariable.SetValue(gun);
         gunPickedUp.Raise();
+        gameObject.SetActive(false);
     }
 
     private void Awake() => gunSpriteRenderer = GetComponent<SpriteRenderer>();

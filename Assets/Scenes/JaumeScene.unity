@@ -131,14 +131,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerProtitype
       objectReference: {fileID: 0}
-    - target: {fileID: 4927907924508296746, guid: 35099cf4b87445e49bc9c34fd3788da5, type: 3}
-      propertyPath: slowDownValue
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4927907924508296746, guid: 35099cf4b87445e49bc9c34fd3788da5, type: 3}
-      propertyPath: playerSettings
-      value: 
-      objectReference: {fileID: 11400000, guid: de06b8ef68ca87e4695738cc7ca68161, type: 2}
     - target: {fileID: 7675591655725024192, guid: 35099cf4b87445e49bc9c34fd3788da5, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.9137306
@@ -179,61 +171,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7766268766734784152, guid: 35099cf4b87445e49bc9c34fd3788da5, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3249411850495712767, guid: 35099cf4b87445e49bc9c34fd3788da5, type: 3}
-      insertIndex: 4
-      addedObject: {fileID: 217115940}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 35099cf4b87445e49bc9c34fd3788da5, type: 3}
---- !u!1 &217115938 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3249411850495712767, guid: 35099cf4b87445e49bc9c34fd3788da5, type: 3}
-  m_PrefabInstance: {fileID: 217115937}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &217115939 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4927907924508296746, guid: 35099cf4b87445e49bc9c34fd3788da5, type: 3}
-  m_PrefabInstance: {fileID: 217115937}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 217115938}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de484d12c1724c5408a57c287c1146a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &217115940
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 217115938}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65687c0a69bb676459564e2994f86e41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damageReceived:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 217115939}
-        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
-        m_MethodName: SlowDown
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &498074644 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2218084058307438758, guid: 17c46ceeeb17aa940824bb2913ccb9ba, type: 3}
@@ -412,7 +354,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
