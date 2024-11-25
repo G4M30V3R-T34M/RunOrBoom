@@ -19,9 +19,15 @@ public class Gun : MonoBehaviour
     private float weaponRange;
 
     private LineRenderer lineRenderer;
+    private SpriteRenderer spriteRenderer;
 
     private void Awake()
-        => lineRenderer = trailOrigin.GetComponent<LineRenderer>();
+    {
+        lineRenderer = trailOrigin.GetComponent<LineRenderer>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
+    private void OnEnable() => UpdateGun();
 
     private void Start()
         => weaponRange = GetWeaponRange();
@@ -46,6 +52,14 @@ public class Gun : MonoBehaviour
             TryToShot(hit);
         }
     }
+
+    public void ChangeGun(GunSO newGun)
+    {
+        gunSettings = newGun;
+        UpdateGun();
+    }
+
+    private void UpdateGun() => spriteRenderer.sprite = gunSettings.gunSprite;
 
     private RaycastHit2D GetGunAim() => Physics2D.Raycast(
         aimOrigin.transform.position,
