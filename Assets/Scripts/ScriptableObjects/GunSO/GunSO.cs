@@ -20,4 +20,5 @@ public class GunSO : ScriptableObject
 
     [Header("Visual configurations")]
     public Sprite gunSprite;
+    public Sprite gunPickUpSprite;
 }
