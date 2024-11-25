@@ -4,4 +4,5 @@ public enum Layer
     Enemy = 7,
     Obstacle = 8,
     Wall = 9,
+    PickUp = 10,
 }
