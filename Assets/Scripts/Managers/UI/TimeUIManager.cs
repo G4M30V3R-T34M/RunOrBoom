@@ -7,9 +7,9 @@ public class TimeUIManager : MonoBehaviour
     public void UpdateTimeDisplay(float remainingTime)
     {
         int seconds = Mathf.RoundToInt(remainingTime % 60);
-        int hours = (int)remainingTime / 60;
+        int minutes = (int)remainingTime / 60;
         timeText.SetText(
-            hours.ToString("00") + ":" + seconds.ToString("00")
+            minutes.ToString("00") + ":" + seconds.ToString("00")
         );
     }
 }
