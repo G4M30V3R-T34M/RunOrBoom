@@ -77,7 +77,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -3621782224553472891, guid: 1d09247128a3e8b438dd0c5f31764160, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -147,6 +147,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5ca8500ebdcbd4428efe6dc270f50e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gun: {fileID: 11400000, guid: 8374158a78af8be48a00aa2448d4b5c0, type: 2}
   newGunPickUpVariable: {fileID: 11400000, guid: 1c5cd54b2b49f674da103416c6a9f98c, type: 2}
   gunPickedUp: {fileID: 11400000, guid: 11073cb0272740d418ff412fd629b307, type: 2}

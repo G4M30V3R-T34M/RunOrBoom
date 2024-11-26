@@ -3,14 +3,12 @@ using UnityEngine;
 
 public class GunPickUp : PickableItem
 {
-    [Header("Gun to pick up")]
-    [SerializeField] GunSO gun;
-
     [Header("Event related")]
     [SerializeField] SOVariable newGunPickUpVariable;
     [SerializeField] GameEvent gunPickedUp;
 
-    SpriteRenderer gunSpriteRenderer;
+    private SpriteRenderer gunSpriteRenderer;
+    public GunSO gun { private get; set; }
 
     public override void PickItem()
     {
@@ -21,5 +19,7 @@ public class GunPickUp : PickableItem
 
     private void Awake() => gunSpriteRenderer = GetComponent<SpriteRenderer>();
 
-    private void OnEnable() => gunSpriteRenderer.sprite = gun.gunPickUpSprite;
+    private void OnEnable() => gunSpriteRenderer.sprite = gun?.gunPickUpSprite;
+
+
 }

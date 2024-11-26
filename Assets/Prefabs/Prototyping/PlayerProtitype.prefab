@@ -171,7 +171,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -362,6 +362,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 246358218163745860, guid: 24aee6d21c241ff40908de03c6a7fb1b, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2450816008623746337, guid: 24aee6d21c241ff40908de03c6a7fb1b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.013
@@ -466,6 +470,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6986893495414503740, guid: 24aee6d21c241ff40908de03c6a7fb1b, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -502,7 +510,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53478e5fd105f7a48917351bbc4ce2cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newGunVariable: {fileID: 11400000, guid: 1c5cd54b2b49f674da103416c6a9f98c, type: 2}
+  nextGunVariable: {fileID: 11400000, guid: 1c5cd54b2b49f674da103416c6a9f98c, type: 2}
   defaultGunSO: {fileID: 11400000, guid: 2beb585cc88031447abfd0840df78c1e, type: 2}
 --- !u!114 &774936422677440598
 MonoBehaviour:
