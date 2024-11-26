@@ -3,6 +3,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "GunScriptableObject", menuName = "Scriptable Objects/GunScriptableObject")]
 public class GunSO : ScriptableObject
 {
+    public bool isDefault;
     [Header("Damage")]
     public float damage;
 
@@ -21,4 +22,7 @@ public class GunSO : ScriptableObject
     [Header("Visual configurations")]
     public Sprite gunSprite;
     public Sprite gunPickUpSprite;
+
+    [Header("Ammunition configuration")]
+    public int ammunition;
 }

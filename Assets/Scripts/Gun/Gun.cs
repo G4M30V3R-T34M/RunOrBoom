@@ -1,3 +1,4 @@
+using FeTo.SOArchitecture;
 using System.Collections;
 using UnityEngine;
 
@@ -13,6 +14,13 @@ public class Gun : MonoBehaviour
     [Header("Current weapon settings")]
     [SerializeField] GunSO gunSettings;
 
+    [Header("Events")]
+    [SerializeField] GameEvent bulletShotEvent;
+    [SerializeField] GameEvent outOfAmmoEvent;
+
+    [Header("Variable")]
+    [SerializeField] IntVariable currentAmmoVariable;
+
     private float currentReactionTime = 0;
     private float currentAimTime = 0;
 
@@ -20,6 +28,8 @@ public class Gun : MonoBehaviour
 
     private LineRenderer lineRenderer;
     private SpriteRenderer spriteRenderer;
+
+    private int currentAmmo;
 
     private void Awake()
     {
@@ -59,7 +69,12 @@ public class Gun : MonoBehaviour
         UpdateGun();
     }
 
-    private void UpdateGun() => spriteRenderer.sprite = gunSettings.gunSprite;
+    private void UpdateGun()
+    {
+        spriteRenderer.sprite = gunSettings.gunSprite;
+        currentAmmo = gunSettings.ammunition;
+        currentAmmoVariable?.SetValue(currentAmmo);
+    }
 
     private RaycastHit2D GetGunAim() => Physics2D.Raycast(
         aimOrigin.transform.position,
@@ -83,6 +98,9 @@ public class Gun : MonoBehaviour
             hit.collider.gameObject.GetComponent<HealthManager>().TakeDamage(gunSettings.damage);
             VisualShot(hit);
             currentAimTime = 0;
+            currentAmmo -= 1;
+            currentAmmoVariable.SetValue(currentAmmo);
+            NotifyGunState();
         }
     }
 
@@ -104,4 +122,20 @@ public class Gun : MonoBehaviour
         => (gunSettings.range == 0)
             ? Mathf.Infinity
             : gunSettings.range;
+
+    private void NotifyGunState()
+    {
+        if (gunSettings.isDefault)
+        {
+            return;
+        }
+        if (currentAmmo == 0)
+        {
+            outOfAmmoEvent?.Raise();
+        }
+        else
+        {
+            bulletShotEvent?.Raise();
+        }
+    }
 }

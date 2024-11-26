@@ -147,6 +147,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5ca8500ebdcbd4428efe6dc270f50e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gun: {fileID: 11400000, guid: 58822554b7c24ee46863157e349ef48f, type: 2}
+  gun: {fileID: 11400000, guid: 8374158a78af8be48a00aa2448d4b5c0, type: 2}
   newGunPickUpVariable: {fileID: 11400000, guid: 1c5cd54b2b49f674da103416c6a9f98c, type: 2}
   gunPickedUp: {fileID: 11400000, guid: 11073cb0272740d418ff412fd629b307, type: 2}
