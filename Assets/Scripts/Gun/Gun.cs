@@ -66,13 +66,12 @@ public class Gun : MonoBehaviour
     {
         if (currentAimTime >= gunSettings.aimingTime)
         {
-            // Pending apply damage to target
-            VisualShot(hit); // Remove when Event is implement
+            hit.collider.gameObject.GetComponent<HealthManager>().TakeDamage(gunSettings.damage);
+            VisualShot(hit);
             currentAimTime = 0;
         }
     }
 
-    // Pending move to other script when Event is implemented
     private void VisualShot(RaycastHit2D hit)
     {
         lineRenderer.SetPosition(0, trailOrigin.transform.position);
@@ -80,7 +79,6 @@ public class Gun : MonoBehaviour
         StartCoroutine(RenderLine());
     }
 
-    // Pending move to other script when Event is implemented
     private IEnumerator RenderLine()
     {
         lineRenderer.enabled = true;

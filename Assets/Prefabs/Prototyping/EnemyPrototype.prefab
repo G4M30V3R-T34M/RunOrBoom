@@ -63,7 +63,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentToRotate: {fileID: 2218084058307438758}
-  rotationSpeed: 10
 --- !u!1 &2218084058307438758
 GameObject:
   m_ObjectHideFlags: 0
@@ -77,6 +76,8 @@ GameObject:
   - component: {fileID: 3236341898681614805}
   - component: {fileID: 2666964772326046742}
   - component: {fileID: 8055296009354551413}
+  - component: {fileID: 1234130875714573013}
+  - component: {fileID: 2222481108615661610}
   m_Layer: 7
   m_Name: EnemyPrototype
   m_TagString: Untagged
@@ -243,6 +244,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8e2093e9e1a21344a84bf2c77dba8ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1234130875714573013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2218084058307438758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d750978033fbaac40984f15f371afb23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemySettings: {fileID: 11400000, guid: cae5529c29bcdce40b9be3258673af71, type: 2}
+--- !u!114 &2222481108615661610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2218084058307438758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eadbfec8f833e0f4e9e53dc89556b60f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NoHealth:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1234130875714573013}
+        m_TargetAssemblyTypeName: Enemy, Assembly-CSharp
+        m_MethodName: Die
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3173904453250106611
 GameObject:
   m_ObjectHideFlags: 0
@@ -288,9 +329,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 031ef9309dac6df48baf4017b3a6b4a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visionRange: 5
-  detectionLayers: 060000000800000009000000
-  targetLayer: 6
+  enemySettings: {fileID: 11400000, guid: cae5529c29bcdce40b9be3258673af71, type: 2}
   visionListeners:
   - {fileID: 5525700042769096782}
 --- !u!120 &145138664845279488

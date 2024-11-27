@@ -3,9 +3,8 @@ using UnityEngine;
 
 public class VisionController : MonoBehaviour
 {
-    [SerializeField] float visionRange;
-    [SerializeField] Layer[] detectionLayers;
-    [SerializeField] Layer targetLayer;
+    [SerializeField] EnemySO enemySettings;
+
     // Since Interface are not serializable this array store game objects which
     // should be IVisionNotificalbe
     [SerializeField] List<MonoBehaviour> visionListeners;
@@ -17,7 +16,7 @@ public class VisionController : MonoBehaviour
 
     private void Start()
         => detectionLayerMasks = LayerMaskHelper.CreateLayerMask(
-            detectionLayers
+            enemySettings.detectionLayers
         );
 
     private void Update()
@@ -37,7 +36,7 @@ public class VisionController : MonoBehaviour
     private RaycastHit2D GetVisibility() => Physics2D.Raycast(
         transform.position,
         transform.right,
-        visionRange,
+        enemySettings.visionRange,
         detectionLayerMasks
     );
 
@@ -51,13 +50,13 @@ public class VisionController : MonoBehaviour
         else
         {
             lineRenderer.SetPosition(0, transform.position);
-            lineRenderer.SetPosition(1, transform.position + (Vector3)transform.right * visionRange);
+            lineRenderer.SetPosition(1, transform.position + (Vector3)transform.right * enemySettings.visionRange);
         }
     }
 
     private bool TargetInSight(RaycastHit2D hit)
         => hit.collider != null
-            && hit.collider.gameObject.layer == (int)targetLayer;
+            && hit.collider.gameObject.layer == (int)enemySettings.targetLayer;
 
     // Due we can't serialize IVisionNotificable use listener as IVisionNotificable
     // and if it's the interface call to TargetInSight

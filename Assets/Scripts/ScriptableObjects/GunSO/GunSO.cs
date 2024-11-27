@@ -3,6 +3,9 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "GunScriptableObject", menuName = "Scriptable Objects/GunScriptableObject")]
 public class GunSO : ScriptableObject
 {
+    [Header("Damage")]
+    public float damage;
+
     [Header("Time configurations")]
     public float aimingTime;
     public float reactionTime;

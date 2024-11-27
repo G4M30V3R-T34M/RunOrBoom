@@ -10,12 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9c609f29a4394034582c519746d9ae42, type: 3}
-  m_Name: DeagleGunSO
+  m_Name: SubMachineGunSO
   m_EditorClassIdentifier: 
-  aimingTime: 0.6
+  damage: 1
+  aimingTime: 0.4
   reactionTime: 0
   range: 0
   targetLayer: 7
-  collisionLayers: 07000000
-  collisionLayerMask: 128
+  collisionLayers: 0700000008000000
+  collisionLayerMask: 384
   gunSprite: {fileID: 0}
