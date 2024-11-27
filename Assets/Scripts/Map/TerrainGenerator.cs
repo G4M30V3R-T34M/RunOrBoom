@@ -28,7 +28,7 @@ public partial class TerrainGenerator : MonoBehaviour
 
     private void Awake()
     {
-        _roomElementsGenerator = new(_enemies, _obstacles, _secretCodes, _terrainConfig);
+        _roomElementsGenerator = new(_terrainConfig);
         _mapGenerator = new(_terrainConfig.numberOfRooms);
     }
 
@@ -194,7 +194,6 @@ public partial class TerrainGenerator : MonoBehaviour
         Vector2 roomPosition,
         bool isPlayerStartRoom)
         => _roomElementsGenerator.GenerateRoom(
-            roomPosition,
             ref _placedSecredCodes,
             _generatedRooms,
             isPlayerStartRoom);

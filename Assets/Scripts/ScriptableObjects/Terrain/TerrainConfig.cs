@@ -6,6 +6,7 @@ public class TerrainConfig : ScriptableObject
     [Header("General Configuration")]
     [Min(1)] public int numberOfRooms;
     [Min(1)] public int numberSecrets;
+    [Min(1)] public int roomDivisions;
 
     [Header("Size")]
     public float roomSize;

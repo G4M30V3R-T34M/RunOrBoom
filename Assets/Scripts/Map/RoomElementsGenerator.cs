@@ -1,46 +1,34 @@
-using FeTo.ObjectPool;
 using UnityEngine;
 
 public class RoomElementsGenerator
 {
-    private ObjectPool _enemies;
-    private ObjectPool _obstacles;
-    private ObjectPool _secretCodes;
     private TerrainConfig _terrainConfig;
 
-    const int ROOM_SIZE = 4;
-
     public RoomElementsGenerator(
-        ObjectPool enemies,
-        ObjectPool obstacles,
-        ObjectPool secretCodes,
         TerrainConfig terrainConfig)
     {
-        _enemies = enemies;
-        _obstacles = obstacles;
-        _secretCodes = secretCodes;
         _terrainConfig = terrainConfig;
     }
 
-    public void GenerateRoom(
-        Vector2 roomPosition,
+    public RoomElement[,] GenerateRoom(
         ref int placedSecretCodes,
         int generatedRooms,
         bool isPlayerStartingRoom)
     {
-        RoomElement[,] roomElements = new RoomElement[ROOM_SIZE, ROOM_SIZE];
+        RoomElement[,] roomElements = new RoomElement[_terrainConfig.roomDivisions, _terrainConfig.roomDivisions];
 
         if (!isPlayerStartingRoom)
         {
-            GenerateSecretCodes(roomPosition, generatedRooms, ref placedSecretCodes, ref roomElements);
-            GenerateEnemies(roomPosition, ref roomElements);
+            GenerateSecretCodes(generatedRooms, ref placedSecretCodes, ref roomElements);
+            GenerateEnemies(ref roomElements);
         }
 
-        GenerateObstacles(roomPosition, roomElements);
+        GenerateObstacles(roomElements);
+
+        return roomElements;
     }
 
     private void GenerateSecretCodes(
-        Vector2 roomPosition,
         int generatedRooms,
         ref int placedSecretCodes,
         ref RoomElement[,] roomElements)
@@ -51,38 +39,40 @@ public class RoomElementsGenerator
 
         if (Random.Range(0f, 1f) <= secretChance)
         {
-            // TODO: PlaceSecret
+            Vector2Int coordinates = FindRandomFreeRoomPosition(roomElements);
+            roomElements[coordinates.x, coordinates.y] = RoomElement.SECRET_CODE;
             placedSecretCodes++;
         }
     }
 
     private void GenerateEnemies(
-        Vector2 roomPosition,
         ref RoomElement[,] roomElements)
     {
-        GenerateEnemy(roomPosition, ref roomElements);
-        if (Random.Range(0, 100) < _terrainConfig.extraEnemyChance)
+        if (Random.Range(0, 100) < _terrainConfig.enemyChance)
         {
-            GenerateEnemy(roomPosition, ref roomElements);
+            GenerateEnemy(ref roomElements);
+
+            if (Random.Range(0, 100) < _terrainConfig.extraEnemyChance)
+            {
+                GenerateEnemy(ref roomElements);
+            }
         }
     }
 
     private void GenerateEnemy(
-        Vector2 roomPosition,
         ref RoomElement[,] roomElements)
     {
-
+        Vector2Int enemyCoordinates = FindRandomFreeRoomPosition(roomElements);
+        roomElements[enemyCoordinates.x, enemyCoordinates.y] = RoomElement.ENEMY;
     }
 
     private void GenerateObstacles(
-        Vector2 roomPosition,
         RoomElement[,] roomElements)
     {
         if (Random.Range(0, 100) < _terrainConfig.obstacleChance)
         {
             Vector2 obstaclePosition = FindRandomFreeRoomPosition(roomElements);
             roomElements[(int)obstaclePosition.x, (int)obstaclePosition.y] = RoomElement.OBSTACLE;
-            // TODO: ADD OBSTACLE
         }
     }
 
