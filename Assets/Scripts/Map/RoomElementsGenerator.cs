@@ -10,12 +10,13 @@ public class RoomElementsGenerator
         _terrainConfig = terrainConfig;
     }
 
-    public RoomElement[,] GenerateRoom(
+    public RoomElement[,] Generate(
         ref int placedSecretCodes,
         int generatedRooms,
         bool isPlayerStartingRoom)
     {
-        RoomElement[,] roomElements = new RoomElement[_terrainConfig.roomDivisions, _terrainConfig.roomDivisions];
+        int divisions = _terrainConfig.roomDivisions;
+        RoomElement[,] roomElements = new RoomElement[divisions, divisions];
 
         if (!isPlayerStartingRoom)
         {
@@ -33,8 +34,8 @@ public class RoomElementsGenerator
         ref int placedSecretCodes,
         ref RoomElement[,] roomElements)
     {
-        int remainingSecrets = _terrainConfig.numberSecrets - placedSecretCodes;
-        int remainingRooms = _terrainConfig.numberOfRooms - generatedRooms;
+        float remainingSecrets = _terrainConfig.numberSecrets - placedSecretCodes;
+        float remainingRooms = _terrainConfig.numberOfRooms - generatedRooms;
         float secretChance = remainingSecrets / remainingRooms;
 
         if (Random.Range(0f, 1f) <= secretChance)

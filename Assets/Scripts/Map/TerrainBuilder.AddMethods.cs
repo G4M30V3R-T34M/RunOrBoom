@@ -1,7 +1,7 @@
 ﻿using FeTo.ObjectPool;
 using UnityEngine;
 
-public partial class TerrainGenerator
+public partial class TerrainBuilder
 {
     private void AddFloor(Vector2 roomPosition)
     {
@@ -46,5 +46,4 @@ public partial class TerrainGenerator
         poolableObject.transform.Rotate(new Vector3(0, 0, rotation));
         poolableObject.gameObject.SetActive(true);
     }
-
 }

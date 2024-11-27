@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numberOfRooms: 6
   numberSecrets: 3
+  roomDivisions: 4
   roomSize: 8
   doorChance: 50
   enemyChance: 50
-  extraEnemyChance: 0
+  extraEnemyChance: 50
   obstacleChance: 50
