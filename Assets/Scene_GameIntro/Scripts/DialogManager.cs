@@ -5,15 +5,15 @@ using UnityEngine;
 public class DialogManager : MonoBehaviour
 {
     [SerializeField]
-    DialogScriptable dialog;
+    private DialogScriptable dialog;
 
     [SerializeField]
-    TextMeshProUGUI speaker, colon, content;
+    private TextMeshProUGUI speaker, colon, content;
 
     [SerializeField]
-    GameObject clickToContinue;
+    private GameObject clickToContinue;
 
-    Animator animator;
+    private Animator animator;
 
     bool writing = true;
     int dialogIndex = 0;
@@ -35,10 +35,7 @@ public class DialogManager : MonoBehaviour
     }
 
     public void StartGame()
-    {
-        // TODO
-        // SceneManager.Instance.LoadScene((int)Scenes.TutorialLevel);
-    }
+        => SceneManager.Instance.LoadScene((int)Scenes.GAME_PLAY);
 
     private void Update()
     {
@@ -66,10 +63,10 @@ public class DialogManager : MonoBehaviour
     private IEnumerator DoWriteNext(DialogEntryScriptable entry)
     {
         string text = "";
-        char[] contentArray = ReplaceInvestigatorName(entry.content).ToCharArray();
+        char[] contentArray = entry.content.ToCharArray();
         int i = 0;
 
-        this.speaker.text = ReplaceInvestigatorName(entry.speaker);
+        this.speaker.text = entry.speaker;
         this.content.text = text;
 
         while (i < contentArray.Length)
@@ -81,12 +78,6 @@ public class DialogManager : MonoBehaviour
         }
         writing = false;
         clickToContinue.SetActive(true);
-    }
-
-    private string ReplaceInvestigatorName(string text)
-    {
-        return text.Replace("NoName", "Protagonist");
-        //return text.Replace("NoName", SaveDataManager.Instance.playerData.investigatorName);
     }
 
     private void EndDialog()
