@@ -9,11 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 220a6484a792f3e4fbc56d6d2378b1b8, type: 3}
-  m_Name: EnemySO
+  m_Script: {fileID: 11500000, guid: c5c35d4fb1cae1646bee127c1f1eb298, type: 3}
+  m_Name: GunOutOfAmmo
   m_EditorClassIdentifier: 
-  health: 10000
-  rotationSpeed: 100
-  visionRange: 5
-  detectionLayers: 060000000800000009000000
-  targetLayer: 6
+  resetValue: 1
+  _logEvents: 0
