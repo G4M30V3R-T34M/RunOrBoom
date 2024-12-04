@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 4944897704136740620}
   - component: {fileID: 6027993721712629866}
   - component: {fileID: 5498695365326651775}
+  - component: {fileID: 33535891768549513}
   m_Layer: 7
   m_Name: EnemyPrototype
   m_TagString: Untagged
@@ -82,7 +83,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.6150943, g: 0.48051304, b: 0.32843712, a: 1}
   m_FlipX: 0
@@ -207,6 +208,30 @@ MonoBehaviour:
   NoHealth:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 33535891768549513}
+        m_TargetAssemblyTypeName: EnemyDeath, Assembly-CSharp
+        m_MethodName: TryToSpawnLoot
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 33535891768549513}
+        m_TargetAssemblyTypeName: EnemyDeath, Assembly-CSharp
+        m_MethodName: SpawnDeadBody
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 6027993721712629866}
         m_TargetAssemblyTypeName: Enemy, Assembly-CSharp
         m_MethodName: Die
@@ -219,6 +244,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &33535891768549513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2218084058307438758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd646b1bd04afc546a6e12c11d1a0f5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4036817067151533983
 GameObject:
   m_ObjectHideFlags: 0
@@ -314,6 +351,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3977679582080127334}
     m_Modifications:
+    - target: {fileID: 246358218163745860, guid: 24aee6d21c241ff40908de03c6a7fb1b, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4563917880972617480, guid: 24aee6d21c241ff40908de03c6a7fb1b, type: 3}
       propertyPath: aimOrigin
       value: 
@@ -373,6 +414,10 @@ PrefabInstance:
     - target: {fileID: 6415024631236724861, guid: 24aee6d21c241ff40908de03c6a7fb1b, type: 3}
       propertyPath: m_Layer
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6986893495414503740, guid: 24aee6d21c241ff40908de03c6a7fb1b, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

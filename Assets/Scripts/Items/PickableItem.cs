@@ -1,6 +1,6 @@
-using UnityEngine;
+using FeTo.ObjectPool;
 
-public abstract class PickableItem : MonoBehaviour
+public abstract class PickableItem : PoolableObject
 {
     public abstract void PickItem();
 }
