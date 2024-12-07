@@ -235,7 +235,11 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      suelos y paredes_0: 6116533639285978555
+      suelos y paredes_1: -7794998691042064623
+      suelos y paredes_2: -7736221481736173206
+      suelos y paredes_3: 3523263799613864932
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
