@@ -397,7 +397,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemySettings: {fileID: 11400000, guid: cae5529c29bcdce40b9be3258673af71, type: 2}
-  visionListeners: []
+  visionListeners:
+  - {fileID: 7430691504107800375}
 --- !u!120 &3322813233308853325
 LineRenderer:
   serializedVersion: 2
