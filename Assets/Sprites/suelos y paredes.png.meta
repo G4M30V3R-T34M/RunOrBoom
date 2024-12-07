@@ -135,7 +135,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: suelos y paredes_0
+      name: Floor
       rect:
         serializedVersion: 2
         x: 109
@@ -143,7 +143,7 @@ TextureImporter:
         width: 2038
         height: 2050
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -157,7 +157,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: suelos y paredes_1
+      name: Wall
       rect:
         serializedVersion: 2
         x: 62
@@ -165,7 +165,7 @@ TextureImporter:
         width: 2142
         height: 216
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -179,7 +179,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: suelos y paredes_2
+      name: Door
       rect:
         serializedVersion: 2
         x: 70
@@ -187,7 +187,7 @@ TextureImporter:
         width: 1114
         height: 114
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -201,7 +201,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: suelos y paredes_3
+      name: Column
       rect:
         serializedVersion: 2
         x: 2235
@@ -209,7 +209,7 @@ TextureImporter:
         width: 211
         height: 213
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -226,7 +226,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: f22a84fe74c61854fb98e33e22fd26b2
     internalID: 0
     vertices: []
     indices: 
@@ -236,10 +236,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      suelos y paredes_0: 6116533639285978555
-      suelos y paredes_1: -7794998691042064623
-      suelos y paredes_2: -7736221481736173206
-      suelos y paredes_3: 3523263799613864932
+      Column: 3523263799613864932
+      Door: -7736221481736173206
+      Floor: 6116533639285978555
+      Wall: -7794998691042064623
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

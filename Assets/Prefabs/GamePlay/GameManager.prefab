@@ -248,7 +248,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ThrowErrorOnEmpty: 1
   poolSize: 10
-  prefab: {fileID: 630699218357786212, guid: e8ab5ac454231c141b82882b8f6f2ee0, type: 3}
+  prefab: {fileID: 8249916649208021411, guid: 0f5256105c3d65c46a35063d8b7551a6, type: 3}
   pool: []
 --- !u!1 &8137120592279685382
 GameObject:
