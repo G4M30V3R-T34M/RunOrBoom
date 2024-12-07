@@ -18,7 +18,13 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnMove(InputValue inputValue) => _movementInput = inputValue.Get<Vector2>();
 
-    public void SlowDown() => StartCoroutine(SlowDownCoroutine());
+    public void SlowDown()
+    {
+        if (currentSpeed >= playerSettings.slowDownValue)
+        {
+            StartCoroutine(SlowDownCoroutine());
+        }
+    }
 
     private IEnumerator SlowDownCoroutine()
     {
