@@ -99,7 +99,7 @@ public class Gun : MonoBehaviour
             VisualShot(hit);
             currentAimTime = 0;
             currentAmmo -= 1;
-            currentAmmoVariable.SetValue(currentAmmo);
+            currentAmmoVariable?.SetValue(currentAmmo);
             NotifyGunState();
         }
     }

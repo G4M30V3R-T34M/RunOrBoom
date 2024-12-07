@@ -323,7 +323,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "Ilustracio\u0301n_sin_ti\u0301tulo (5)_16"
+      name: Head
       rect:
         serializedVersion: 2
         x: 731
@@ -367,7 +367,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "Ilustracio\u0301n_sin_ti\u0301tulo (5)_21"
+      name: Torax
       rect:
         serializedVersion: 2
         x: 613
@@ -433,7 +433,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "Ilustracio\u0301n_sin_ti\u0301tulo (5)_26"
+      name: Front left foot
       rect:
         serializedVersion: 2
         x: 704
@@ -477,7 +477,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "Ilustracio\u0301n_sin_ti\u0301tulo (5)_30"
+      name: Front left hand
       rect:
         serializedVersion: 2
         x: 637
@@ -499,7 +499,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "Ilustracio\u0301n_sin_ti\u0301tulo (5)_33"
+      name: Back left hand
       rect:
         serializedVersion: 2
         x: 642
@@ -521,7 +521,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "Ilustracio\u0301n_sin_ti\u0301tulo (5)_34"
+      name: Back left foot
       rect:
         serializedVersion: 2
         x: 709
@@ -565,7 +565,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "Ilustracio\u0301n_sin_ti\u0301tulo (5)_38"
+      name: Back right foot
       rect:
         serializedVersion: 2
         x: 826
@@ -587,7 +587,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "Ilustracio\u0301n_sin_ti\u0301tulo (5)_41"
+      name: Up default
       rect:
         serializedVersion: 2
         x: 646
@@ -609,7 +609,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "Ilustracio\u0301n_sin_ti\u0301tulo (5)_42"
+      name: Up uzi
       rect:
         serializedVersion: 2
         x: 725
@@ -631,7 +631,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "Ilustracio\u0301n_sin_ti\u0301tulo (5)_43"
+      name: Up deagle
       rect:
         serializedVersion: 2
         x: 809
@@ -653,7 +653,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "Ilustracio\u0301n_sin_ti\u0301tulo (5)_45"
+      name: Deagle
       rect:
         serializedVersion: 2
         x: 889
@@ -675,7 +675,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "Ilustracio\u0301n_sin_ti\u0301tulo (5)_47"
+      name: Uzi
       rect:
         serializedVersion: 2
         x: 608
@@ -719,7 +719,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "Ilustracio\u0301n_sin_ti\u0301tulo (5)_50"
+      name: Default gun
       rect:
         serializedVersion: 2
         x: 897
@@ -741,11 +741,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "Ilustracio\u0301n_sin_ti\u0301tulo (5)_51"
+      name: obstacle
       rect:
         serializedVersion: 2
         x: 534
-        y: 1027
+        y: 1023
         width: 678
         height: 396
       alignment: 0
@@ -763,7 +763,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "Ilustracio\u0301n_sin_ti\u0301tulo (5)_0"
+      name: Front right foot
       rect:
         serializedVersion: 2
         x: 829
@@ -785,7 +785,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "Ilustracio\u0301n_sin_ti\u0301tulo (5)_1"
+      name: Right hand
       rect:
         serializedVersion: 2
         x: 918
@@ -820,9 +820,23 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      "Ilustracio\u0301n_sin_ti\u0301tulo (5)_0": -1214001153
-      "Ilustracio\u0301n_sin_ti\u0301tulo (5)_1": -373243398
+      Back left foot: -2086472276490985418
+      Back left hand: -6760959718932659165
+      Back right foot: -3297349525772973767
+      Deagle: 4348224384214745909
+      Default gun: -5870780357505987781
+      Front left foot: -4412743738973366867
+      Front left hand: 3131191428750160926
+      Front right foot: -1214001153
+      Head: -3621782224553472891
       "Ilustracio\u0301n_sin_ti\u0301tulo (5)_52": -1838225062
+      Right hand: -373243398
+      Torax: -5016616452664991601
+      Up deagle: 1227848695629493402
+      Up default: 3200864700108967155
+      Up uzi: 5800150533519356051
+      Uzi: 5954938612932781267
+      obstacle: 8169246618998009671
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -28,7 +28,7 @@ public class PatrolRotationController : MonoBehaviour
     {
         if (collision.gameObject.layer == (int)Layer.Wall)
         {
-            patrolManager.CollisionWithWall();
+            patrolManager?.CollisionWithWall();
         }
     }
 

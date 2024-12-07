@@ -1,0 +1,450 @@
+fileFormatVersion: 2
+guid: c29989faed820c441b4c0fee93daefc1
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5193319192671869654
+    second: spritesheet 2 (1)_0
+  - first:
+      213: -6708548666773600198
+    second: spritesheet 2 (1)_1
+  - first:
+      213: 7237839734521813799
+    second: spritesheet 2 (1)_2
+  - first:
+      213: 1263383467127515941
+    second: spritesheet 2 (1)_3
+  - first:
+      213: -5823039314882005751
+    second: spritesheet 2 (1)_4
+  - first:
+      213: 2500264863393299041
+    second: spritesheet 2 (1)_5
+  - first:
+      213: -2035636806168940454
+    second: spritesheet 2 (1)_6
+  - first:
+      213: 7347264342310141778
+    second: spritesheet 2 (1)_7
+  - first:
+      213: -8262937056618328912
+    second: spritesheet 2 (1)_8
+  - first:
+      213: 5483405566902802498
+    second: spritesheet 2 (1)_9
+  - first:
+      213: 5192989229370217768
+    second: spritesheet 2 (1)_10
+  - first:
+      213: 4705485726151463277
+    second: spritesheet 2 (1)_11
+  - first:
+      213: 7742617504928855972
+    second: spritesheet 2 (1)_12
+  - first:
+      213: -2658549293458016774
+    second: spritesheet 2 (1)_13
+  - first:
+      213: 819896826252537112
+    second: spritesheet 2 (1)_14
+  - first:
+      213: 6893233717877508121
+    second: spritesheet 2 (1)_15
+  - first:
+      213: 5775308911837468911
+    second: spritesheet 2 (1)_16
+  - first:
+      213: -8994042984794756692
+    second: spritesheet 2 (1)_17
+  - first:
+      213: 6073269208204307460
+    second: spritesheet 2 (1)_18
+  - first:
+      213: -7279214384573771783
+    second: spritesheet 2 (1)_19
+  - first:
+      213: 8938564369334204004
+    second: spritesheet 2 (1)_20
+  - first:
+      213: -7238224052586147279
+    second: spritesheet 2 (1)_21
+  - first:
+      213: -5765435254141256383
+    second: spritesheet 2 (1)_22
+  - first:
+      213: -2165359701320039429
+    second: spritesheet 2 (1)_23
+  - first:
+      213: -9148257646295782674
+    second: spritesheet 2 (1)_24
+  - first:
+      213: 5007861792199597693
+    second: spritesheet 2 (1)_25
+  - first:
+      213: -6190384196563717325
+    second: spritesheet 2 (1)_26
+  - first:
+      213: 5390810930268131293
+    second: spritesheet 2 (1)_27
+  - first:
+      213: -3561379785962469985
+    second: spritesheet 2 (1)_28
+  - first:
+      213: 2320567296953511164
+    second: spritesheet 2 (1)_29
+  - first:
+      213: -9161107476653566533
+    second: spritesheet 2 (1)_30
+  - first:
+      213: 7050968973454152552
+    second: spritesheet 2 (1)_31
+  - first:
+      213: 4309094540965136891
+    second: spritesheet 2 (1)_32
+  - first:
+      213: 5737799504024256311
+    second: spritesheet 2 (1)_33
+  - first:
+      213: -5519669916625754782
+    second: spritesheet 2 (1)_34
+  - first:
+      213: -4174914180107250439
+    second: spritesheet 2 (1)_35
+  - first:
+      213: -6447588170283760897
+    second: spritesheet 2 (1)_36
+  - first:
+      213: 1258389886341752940
+    second: spritesheet 2 (1)_37
+  - first:
+      213: -637397729397993300
+    second: spritesheet 2 (1)_38
+  - first:
+      213: -4301426130758588613
+    second: spritesheet 2 (1)_39
+  - first:
+      213: -7909130035062836236
+    second: spritesheet 2 (1)_40
+  - first:
+      213: 4796279780666716053
+    second: spritesheet 2 (1)_41
+  - first:
+      213: -952782775324051886
+    second: spritesheet 2 (1)_42
+  - first:
+      213: 883621460008196365
+    second: spritesheet 2 (1)_43
+  - first:
+      213: 8531479206711275817
+    second: spritesheet 2 (1)_44
+  - first:
+      213: -1323093618782314658
+    second: spritesheet 2 (1)_45
+  - first:
+      213: 2238932962979505467
+    second: spritesheet 2 (1)_46
+  - first:
+      213: -5460191338564547584
+    second: spritesheet 2 (1)_47
+  - first:
+      213: -7500295356587967470
+    second: spritesheet 2 (1)_48
+  - first:
+      213: 4283778412808624692
+    second: spritesheet 2 (1)_49
+  - first:
+      213: 8539124038678777527
+    second: spritesheet 2 (1)_50
+  - first:
+      213: -5077257676496696134
+    second: spritesheet 2 (1)_51
+  - first:
+      213: -7671661534209718712
+    second: spritesheet 2 (1)_52
+  - first:
+      213: 3978031259825279527
+    second: spritesheet 2 (1)_53
+  - first:
+      213: -3813184612558161413
+    second: spritesheet 2 (1)_54
+  - first:
+      213: -2916724291941534502
+    second: spritesheet 2 (1)_55
+  - first:
+      213: 3455902567919638655
+    second: spritesheet 2 (1)_56
+  - first:
+      213: 6046951962262336056
+    second: spritesheet 2 (1)_57
+  - first:
+      213: 4702610053626990255
+    second: spritesheet 2 (1)_58
+  - first:
+      213: 7760970832087509079
+    second: spritesheet 2 (1)_59
+  - first:
+      213: -7795729468777345450
+    second: spritesheet 2 (1)_60
+  - first:
+      213: 4494808560715822697
+    second: spritesheet 2 (1)_61
+  - first:
+      213: 1644551830424917056
+    second: spritesheet 2 (1)_62
+  - first:
+      213: -8249167102881594471
+    second: spritesheet 2 (1)_63
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Corpse hand
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 1118
+        width: 76
+        height: 78
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: abc0a4f2b05f989b0800000000000000
+      internalID: -5077257676496696134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Corpse torax
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 922
+        width: 322
+        height: 309
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 846c6681b78c88590800000000000000
+      internalID: -7671661534209718712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Corpse foot
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 856
+        width: 88
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad4721fb5b6b587d0800000000000000
+      internalID: -2916724291941534502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blood
+      rect:
+        serializedVersion: 2
+        x: 696
+        y: 433
+        width: 404
+        height: 505
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8327f7485c61be350800000000000000
+      internalID: 6046951962262336056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Corpse head
+      rect:
+        serializedVersion: 2
+        x: 730
+        y: 2144
+        width: 127
+        height: 133
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bcf8649518d181a468581bd0518a5ea0
+      internalID: 1445154469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 59a2f66afcc6a544ba89bbfdbf96689c
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Blood: 6046951962262336056
+      Corpse foot: -2916724291941534502
+      Corpse hand: -5077257676496696134
+      Corpse head: 1445154469
+      Corpse torax: -7671661534209718712
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
