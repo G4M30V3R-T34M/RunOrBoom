@@ -119,50 +119,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &182398679 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3865058166326600321, guid: aee2c6096d3907e44b7ae5727df4ddde, type: 3}
-  m_PrefabInstance: {fileID: 702321412}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &182398680
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 182398679}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70417ae8009d1a94ab7803a022d32c3e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: 0dcf67cb5d7a73b4fb1c5746b2394971, type: 2}
-  Response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 182398683}
-        m_TargetAssemblyTypeName: SceneManager, Assembly-CSharp
-        m_MethodName: LoadScene
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 3
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &182398683 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1124366315130535148, guid: aee2c6096d3907e44b7ae5727df4ddde, type: 3}
-  m_PrefabInstance: {fileID: 702321412}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 182398679}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7da81cd39eb3dc4cb160181fc2c5b46, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &183128018
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -311,10 +267,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3865058166326600321, guid: aee2c6096d3907e44b7ae5727df4ddde, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 182398680}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aee2c6096d3907e44b7ae5727df4ddde, type: 3}
 --- !u!1 &768944287
 GameObject:
