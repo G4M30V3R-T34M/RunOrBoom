@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2780657889258273721}
   - component: {fileID: 5508544099638897278}
   - component: {fileID: 4721861347918888410}
+  - component: {fileID: 1807541020625676270}
   m_Layer: 10
   m_Name: GunPickable
   m_TagString: Untagged
@@ -149,3 +150,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newGunPickUpVariable: {fileID: 11400000, guid: 1c5cd54b2b49f674da103416c6a9f98c, type: 2}
   gunPickedUp: {fileID: 11400000, guid: 11073cb0272740d418ff412fd629b307, type: 2}
+--- !u!95 &1807541020625676270
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6281180844440546776}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9861a4a6023bc5f4082065007875afdf, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
