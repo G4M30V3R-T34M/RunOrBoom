@@ -18,8 +18,8 @@ MonoBehaviour:
   reactionTime: 0
   range: 0
   targetLayer: 7
-  collisionLayers: 07000000
-  collisionLayerMask: 128
+  collisionLayers: 0700000009000000
+  collisionLayerMask: 640
   gunSprite: {fileID: 1227848695629493402, guid: 1d09247128a3e8b438dd0c5f31764160, type: 3}
   gunPickUpSprite: {fileID: 4348224384214745909, guid: 1d09247128a3e8b438dd0c5f31764160, type: 3}
   ammunition: 5
