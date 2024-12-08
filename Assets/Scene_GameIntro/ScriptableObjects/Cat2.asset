@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: Cat2
   m_EditorClassIdentifier: 
   speaker: Not Suspicious
-  content: We found a dead body ... *Meow* ... Could you come to investigate?
+  content: Someone has placed a bomb in the shopping mall, and we need you to find
+    the code to deactivate it.

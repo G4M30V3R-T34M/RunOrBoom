@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: Investigator1
   m_EditorClassIdentifier: 
   speaker: NoName
-  content: This is Investigator NoName speaking.
+  content: Hello, this is Investigator NoName speaking. Calling from the University
+    of Wiskatonic again?
