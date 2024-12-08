@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: BulletShot
   m_EditorClassIdentifier: 
   resetValue: 1
-  _logEvents: 0
+  _logEvents: 1
