@@ -275,7 +275,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ThrowErrorOnEmpty: 1
   poolSize: 20
-  prefab: {fileID: 4944897704136740620, guid: 17c46ceeeb17aa940824bb2913ccb9ba, type: 3}
+  prefab: {fileID: 6027993721712629866, guid: 17c46ceeeb17aa940824bb2913ccb9ba, type: 3}
   pool: []
 --- !u!1 &783929844
 GameObject:
@@ -706,7 +706,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42e595183eecea74782d5de12fe15632, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ThrowErrorOnEmpty: 0
+  ThrowErrorOnEmpty: 1
   poolSize: 20
   prefab: {fileID: 2565537694499469100, guid: f3cb30d8c22187d4a82e47e701e3955f, type: 3}
   pool: []
