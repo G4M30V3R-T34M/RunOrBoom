@@ -95,7 +95,7 @@ public class Gun : MonoBehaviour
     {
         if (currentAimTime >= gunSettings.aimingTime)
         {
-            hit.collider.gameObject.GetComponent<HealthManager>().TakeDamage(gunSettings.damage);
+            hit.collider.gameObject.GetComponent<HealthManager>()?.TakeDamage(gunSettings.damage);
             VisualShot(hit);
             currentAimTime = 0;
             currentAmmo -= 1;
