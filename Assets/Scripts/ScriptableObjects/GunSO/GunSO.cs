@@ -25,4 +25,7 @@ public class GunSO : ScriptableObject
 
     [Header("Ammunition configuration")]
     public int ammunition;
+
+    [Header("Audio Configuration")]
+    public AudioClip gunAudioClip;
 }
