@@ -28,6 +28,7 @@ public class Gun : MonoBehaviour
 
     private LineRenderer lineRenderer;
     private SpriteRenderer spriteRenderer;
+    private AudioSource _audioSource;
 
     private int currentAmmo;
 
@@ -35,6 +36,8 @@ public class Gun : MonoBehaviour
     {
         lineRenderer = trailOrigin.GetComponent<LineRenderer>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        _audioSource = GetComponent<AudioSource>();
+        _audioSource.clip = gunSettings.gunAudioClip;
     }
 
     private void OnEnable() => UpdateGun();
@@ -74,6 +77,7 @@ public class Gun : MonoBehaviour
         spriteRenderer.sprite = gunSettings.gunSprite;
         currentAmmo = gunSettings.ammunition;
         currentAmmoVariable?.SetValue(currentAmmo);
+        _audioSource.clip = gunSettings.gunAudioClip;
     }
 
     private RaycastHit2D GetGunAim() => Physics2D.Raycast(
@@ -97,6 +101,7 @@ public class Gun : MonoBehaviour
         {
             hit.collider.gameObject.GetComponent<HealthManager>()?.TakeDamage(gunSettings.damage);
             VisualShot(hit);
+            _audioSource.Play();
             currentAimTime = 0;
             currentAmmo -= 1;
             currentAmmoVariable?.SetValue(currentAmmo);

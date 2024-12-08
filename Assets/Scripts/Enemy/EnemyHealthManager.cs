@@ -2,7 +2,6 @@ using UnityEngine.Events;
 
 public class EnemyHealthManager : HealthManager
 {
-    public delegate void NoHealthAction();
     public UnityEvent NoHealth;
 
     public override void TakeDamage(float damage)

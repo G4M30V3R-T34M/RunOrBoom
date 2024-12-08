@@ -23,3 +23,4 @@ MonoBehaviour:
   gunSprite: {fileID: 5800150533519356051, guid: 1d09247128a3e8b438dd0c5f31764160, type: 3}
   gunPickUpSprite: {fileID: 5954938612932781267, guid: 1d09247128a3e8b438dd0c5f31764160, type: 3}
   ammunition: 10
+  gunAudioClip: {fileID: 8300000, guid: 0c70bc39ddda83d4e9e5dfa4c474acc4, type: 3}
