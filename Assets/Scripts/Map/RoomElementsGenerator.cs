@@ -18,7 +18,7 @@ public class RoomElementsGenerator
         int divisions = _terrainConfig.roomDivisions;
         RoomElement[,] roomElements = new RoomElement[divisions, divisions];
 
-        if (!isPlayerStartingRoom)
+        if (!isPlayerStartingRoom || IsLastRoom(generatedRooms))
         {
             GenerateSecretCodes(generatedRooms, ref placedSecretCodes, ref roomElements);
             GenerateEnemies(ref roomElements);
@@ -28,6 +28,9 @@ public class RoomElementsGenerator
 
         return roomElements;
     }
+
+    private bool IsLastRoom(int generatedRooms)
+        => generatedRooms == _terrainConfig.numberOfRooms - 1;
 
     private void GenerateSecretCodes(
         int generatedRooms,
